@@ -539,14 +539,13 @@ article.post{
     transform: translate(-50%,-50%);
 }
 .tg_commit ul li .textwidget{
-    text-transform: uppercase;
-  
     display: table-cell;
     vertical-align: middle;
     padding: 0px 0px 0px 10px;
     text-align: left;
 }
 .tg_commit ul li .textwidget p{
+	text-transform: uppercase;
       font-weight: 700;
       font-size: 16px;
       line-height: 23px;
