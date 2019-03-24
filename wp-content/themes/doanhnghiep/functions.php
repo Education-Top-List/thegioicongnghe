@@ -259,7 +259,7 @@ function custom_get_price_html( $price,$product ){
          '  </del>  </div><div class="live-colst"><label>Giá</label>: '.( ( is_numeric( $to ) ) ? wc_price( $to ) : $to ) .' </div>';
       } else {
         $to = $product->price;
-        return '<div class="live-colst"> ' . ( ( is_numeric( $to ) ) ? wc_price( $to ) : $to ) . ' fsda</div>';
+        return '<div class="live-colst"> ' . ( ( is_numeric( $to ) ) ? wc_price( $to ) : $to ) . ' </div>';
       }
    } else {
      return '<div class="live-colst">0 Our Price</div>';

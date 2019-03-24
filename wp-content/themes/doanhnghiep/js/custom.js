@@ -128,7 +128,7 @@ jQuery(document).ready(function(){
 			jQuery('.wq_quizCtr').delay(300).slideDown();
 		});
 		
+
 		
-		
-	});
+});
 
