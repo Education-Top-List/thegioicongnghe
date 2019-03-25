@@ -139,39 +139,43 @@
 				<div class="container">
 					<div class="wrap_ul_commit">
 						<ul class="row">
-						<li class="col-sm-4">
-							<div class="wrap_commit">
-								<figure class="thumbnail"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></figure>
-								<div class="textwidget">
-									<p>Hoàn tiền 100%</p>
-									<span>Nếu không hài lòng về sản phẩm</span>	
+							<li class="col-sm-4">
+								<div class="wrap_commit">
+									<figure class="thumbnail"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></figure>
+									<div class="textwidget">
+										<p>Hoàn tiền 100%</p>
+										<span>Nếu không hài lòng về sản phẩm</span>	
+									</div>
+
 								</div>
-								
-							</div>
-						</li>
-						<li class="col-sm-4">
-							<div class="wrap_commit">
-								<figure class="thumbnail"><i class="fa fa-star-o" aria-hidden="true"></i></figure>
-								<div class="textwidget">
-									<p>Uy tín và chất lượng</p>	
-									<span>Cam kết mang đến những sản phẩm tốt nhất </span>
+							</li>
+							<li class="col-sm-4">
+								<div class="wrap_commit">
+									<figure class="thumbnail"><i class="fa fa-star-o" aria-hidden="true"></i></figure>
+									<div class="textwidget">
+										<p>Uy tín và chất lượng</p>	
+										<span>Cam kết mang đến những sản phẩm tốt nhất </span>
+									</div>
 								</div>
-							</div>
-						</li>
-						<li class="col-sm-4">
-							<div class="wrap_commit">
-								<figure class="thumbnail"><i class="fa fa-phone" aria-hidden="true"></i></figure>
-								<div class="textwidget">
-									<p>Hỗ trợ 24/7</p>
-									<span>Hãy gọi chúng tôi để được tư vấn</span>
+							</li>
+							<li class="col-sm-4">
+								<div class="wrap_commit">
+									<figure class="thumbnail"><i class="fa fa-phone" aria-hidden="true"></i></figure>
+									<div class="textwidget">
+										<p>Hỗ trợ 24/7</p>
+										<span>Hãy gọi chúng tôi để được tư vấn</span>
+									</div>
+
 								</div>
-								
-							</div>
-						</li>
-					</ul>
+							</li>
+						</ul>
 					</div>
 					
 				</div>
 			</div>
 
 		</header>
+
+
+
+	

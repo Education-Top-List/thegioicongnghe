@@ -1,0 +1,66 @@
+2019-03-25T04:37:20+00:00 CRITICAL syntax error, unexpected 'public' (T_PUBLIC), expecting end of file in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 426
+
+2019-03-25T04:37:24+00:00 CRITICAL syntax error, unexpected 'public' (T_PUBLIC), expecting end of file in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 426
+
+2019-03-25T04:37:25+00:00 CRITICAL syntax error, unexpected 'public' (T_PUBLIC), expecting end of file in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 426
+
+2019-03-25T04:37:35+00:00 CRITICAL Cannot use "self" when no class scope is active in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 448
+
+2019-03-25T04:40:32+00:00 CRITICAL syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ',' or ')' in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 448
+
+2019-03-25T04:52:14+00:00 CRITICAL syntax error, unexpected 'public' (T_PUBLIC), expecting end of file in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 450
+
+2019-03-25T04:52:14+00:00 CRITICAL syntax error, unexpected 'public' (T_PUBLIC), expecting end of file in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 450
+
+2019-03-25T04:52:22+00:00 CRITICAL Cannot redeclare add_meta_box() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:454) in C:\xampp\htdocs\thegioicongnghe\wp-admin\includes\template.php on line 999
+
+2019-03-25T04:56:52+00:00 CRITICAL Cannot use "self" when no class scope is active in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 475
+
+2019-03-25T04:56:53+00:00 CRITICAL Cannot use "self" when no class scope is active in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 475
+
+2019-03-25T04:56:58+00:00 CRITICAL Cannot use "self" when no class scope is active in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 475
+
+2019-03-25T05:22:23+00:00 CRITICAL Uncaught Error: Call to undefined function rwmb_meta() in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:509
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): pharmacy_extra_info('')
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\single-product\meta.php(39): do_action('woocommerce_pro...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\woocommerce\includes\wc-core-functions.php(211): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1476): wc_get_template('single-product/...')
+#6 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): woocommerce_template_single_meta('')
+#7 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp- in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 509
+
+2019-03-25T05:46:37+00:00 CRITICAL Uncaught Error: Call to undefined function get_field() in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:458
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): my_acf_product_content('')
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\content-single-product.php(70): do_action('woocommerce_aft...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\woocommerce\includes\wc-core-functions.php(181): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\single-product.php(39): wc_get_template_part('content', 'single-product')
+#7 C:\xampp\htdocs\thegioicongnghe\wp-in in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 458
+
+2019-03-25T05:46:44+00:00 CRITICAL Uncaught Error: Call to undefined function get_field() in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:458
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): my_acf_product_content('')
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\content-single-product.php(70): do_action('woocommerce_aft...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\woocommerce\includes\wc-core-functions.php(181): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\single-product.php(39): wc_get_template_part('content', 'single-product')
+#7 C:\xampp\htdocs\thegioicongnghe\wp-in in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 458
+
+2019-03-25T05:47:35+00:00 CRITICAL Uncaught Error: Call to undefined function get_field() in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:458
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): my_acf_product_content('')
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\content-single-product.php(70): do_action('woocommerce_aft...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\woocommerce\includes\wc-core-functions.php(181): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\single-product.php(39): wc_get_template_part('content', 'single-product')
+#7 C:\xampp\htdocs\thegioicongnghe\wp-in in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 458
+
