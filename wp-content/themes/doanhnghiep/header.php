@@ -18,17 +18,8 @@
 	<script src="<?php echo BASE_URL; ?>/js/jquery.min.js"></script>
 	<script src="<?php echo BASE_URL; ?>/js/custom.js"></script>
 	<?php wp_head(); ?>
-	<meta property="fb:app_id" content="1953938748210615">
-	<meta property="fb:app_admins" content="1993613924220223">
 </head>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1&appId=1953938748210615&autoLogAppEvents=1';
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+
 
 <body <?php body_class() ?>>
 
@@ -48,7 +39,6 @@
 	<?php }?>
 	<header class="header">
 		<div class="top_header">
-
 			<!-- display account top_header mobile -->
 			<?php if (is_user_logged_in() && wp_is_mobile() ): ?>
 			<div class="after_login after_login_mb">
@@ -99,39 +89,35 @@
 					?>
 					<?php wp_nav_menu($args); ?>
 				</nav>
-				<?php if (is_user_logged_in()): ?>
-					<div class="after_login">
-						<a href="<?php echo get_site_url();?>/tai-khoan">	
-							<?php  $current_user = wp_get_current_user();
-							echo 'Xin chào : ' . $current_user->user_login . '';
-							?></a>
-							| <a href="<?php echo wp_logout_url(); ?>" > Đăng xuất</a>
+				<div class="cart_login">
+					<?php if (is_user_logged_in()): ?>
+						<div class="after_login">
+							<a href="<?php echo get_site_url();?>/tai-khoan">	
+								<?php  $current_user = wp_get_current_user();
+								echo 'Xin chào : ' . $current_user->user_login . '';
+								?></a>
+								| <a href="<?php echo wp_logout_url(); ?>" > Đăng xuất</a>
+							</div>
+						<?php endif; ?>
+						<div class="tg_user">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<div class="tg-sub-menu">
+								<p><a href="<?php echo get_site_url().'/tai-khoan';?>">Đăng nhập</a> | <a href="<?php echo get_site_url().'/tai-khoan';?>">Đăng kí</a></p>
+							</div>
 						</div>
-					<?php endif; ?>
-					<div class="tg_user">
-						<i class="fa fa-user" aria-hidden="true"></i>
-						<div class="tg-sub-menu">
-							<p><a href="<?php echo get_site_url().'/tai-khoan';?>">Đăng nhập</a> | <a href="<?php echo get_site_url().'/tai-khoan';?>">Đăng kí</a></p>
+						<div class="g_cart">
+
+							<?php global $woocommerce; ?>
+							<a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('Xem giỏ hàng', 'woothemes'); ?>">
+								<?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> <?php //echo $woocommerce->cart->get_cart_total(); ?> 
+
+							</a>
+							<div class="header-quickcart">
+								<?php woocommerce_mini_cart(); ?>
+							</div>
+
 						</div>
 					</div>
-					<div class="g_cart">
-
-						<?php global $woocommerce; ?>
-						<a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('Xem giỏ hàng', 'woothemes'); ?>">
-							<?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> <?php //echo $woocommerce->cart->get_cart_total(); ?> 
-
-						</a>
-
-
-						<div class="header-quickcart">
-							<?php woocommerce_mini_cart(); ?>
-						</div>
-
-					</div>
-					
-					
-
-
 				</div>
 			</div>
 
@@ -178,4 +164,3 @@
 
 
 
-	

@@ -14,7 +14,7 @@
  * @package WooCommerce/Templates
  * @version 3.4.0
  */
-session_start();
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -117,8 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php endif; ?>
 
 <?php 
-// Xóa hết session
-session_destroy();
+
 
 do_action( 'woocommerce_after_customer_login_form' ); 
 

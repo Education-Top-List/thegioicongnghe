@@ -24,8 +24,8 @@ get_header();
 			<div class="product_area_index">
 				<div class="container">
 					<?php
-						  $taxonomy     = 'product_cat';
-						  $orderby      = 'name';  
+					$taxonomy     = 'product_cat';
+					$orderby      = 'name';  
 						  $show_count   = 0;      // 1 for yes, 0 for no
 						  $pad_counts   = 0;      // 1 for yes, 0 for no
 						  $hierarchical = 0;      // 1 for yes, 0 for no  
@@ -39,7 +39,7 @@ get_header();
 						  	'hierarchical' => $hierarchical,
 						  	'title_li'     => $title,
 						  	'hide_empty'   => $empty,
-						 
+
 						  );
 						  $all_categories = get_categories( $args );
 						  ?>
@@ -53,7 +53,8 @@ get_header();
 						  			<div class="item_loop_post_category_idx">
 						  				<div class="top_menu_list_product">
 						  					<div class="parent_catgories_idx">
-						  						<?php echo '<a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .' <span>('. $cat->count .')</span></a>';?>
+						  						<?php echo '<a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a>';?>
+						  						<!-- $cat->count -->
 						  					</div>
 						  					<?php
 						  					$args2 = array(
@@ -73,7 +74,7 @@ get_header();
 						  						<ul class="sub_product_category">
 						  							<?php
 						  							foreach($sub_cats as $sub_category) {
-						  								echo  '<li><a href="'.get_term_link($sub_category->slug, 'product_cat')  .'">'.$sub_category->name.' <span class="count_pd_subpd">('. $sub_category->count .')</span>  </a></li>' ;
+						  								echo  '<li><a href="'.get_term_link($sub_category->slug, 'product_cat')  .'">'.$sub_category->name.' </a></li>' ;
 						  							}?>
 						  						</ul>
 						  						<?php   
@@ -82,7 +83,7 @@ get_header();
 						  				</div>
 						  				<?php 
 						  				$args_list_product_category = array(
-						  					'posts_per_page' => 4,
+						  					'posts_per_page' => 9,
 						  					'tax_query' => array(
 						  						array(
 						  							'taxonomy' => 'product_cat',
@@ -104,9 +105,7 @@ get_header();
 						  							<div class="product_inner">
 						  								<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $products->post->ID ), 'single-post-thumbnail' );?>
 						  								<figure class="thumbnail" style="background:url(<?php  echo $image[0]; ?>);" class="thumb_product" >
-						  									<a href="<?php echo get_permalink( $loop->post->ID ) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
-
-						  										<?php woocommerce_show_product_sale_flash( $post, $product ); ?>
+						  									<a href="<?php echo get_permalink( $loop->post->ID ) ?>">
 						  									</a>
 						  								</figure>
 
@@ -117,10 +116,15 @@ get_header();
 						  										<span>
 						  											<?php echo $product->get_price_html(); ?>
 						  										</span>      
-						  									</div>
-						  									<?php woocommerce_template_loop_add_to_cart( $products->post, $product ); ?>
+						  									</div>	
 						  								</div>
-						  								
+						  								<div class="tg_btn_acts">
+						  									<ul>
+						  										<li class="add_c"><?php woocommerce_template_loop_add_to_cart( $products->post, $product ); ?></li>
+						  										<li class="detail_pd"><a href="<?php echo get_permalink( $loop->post->ID ) ?>"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+
+						  									</ul>
+						  								</div>
 						  							</div>
 
 						  						</li>
@@ -134,7 +138,7 @@ get_header();
 						  	}//end foreach ?>
 						  </div>
 
-						 
+
 						</div>
 
 					</div>

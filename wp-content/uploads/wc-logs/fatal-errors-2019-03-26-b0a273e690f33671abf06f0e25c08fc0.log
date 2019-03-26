@@ -1,0 +1,50 @@
+2019-03-26T09:33:20+00:00 CRITICAL Uncaught Error: Call to undefined function gutenberg_get_jed_locale_data() in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php:42
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): MetaSlider_Gutenberg->enqueue_block_scripts('')
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\thegioicongnghe\wp-admin\edit-form-blocks.php(353): do_action('enqueue_block_e...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-admin\post.php(168): include('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php on line 42
+
+2019-03-26T09:47:01+00:00 CRITICAL Uncaught Error: Call to undefined function gutenberg_get_jed_locale_data() in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php:42
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): MetaSlider_Gutenberg->enqueue_block_scripts('')
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\thegioicongnghe\wp-admin\edit-form-blocks.php(353): do_action('enqueue_block_e...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-admin\post.php(168): include('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php on line 42
+
+2019-03-26T10:07:17+00:00 CRITICAL Uncaught Error: Call to undefined function gutenberg_get_jed_locale_data() in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php:42
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): MetaSlider_Gutenberg->enqueue_block_scripts('')
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\thegioicongnghe\wp-admin\edit-form-blocks.php(353): do_action('enqueue_block_e...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-admin\post-new.php(76): include('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php on line 42
+
+2019-03-26T10:07:36+00:00 CRITICAL Uncaught Error: Call to undefined function gutenberg_get_jed_locale_data() in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php:42
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): MetaSlider_Gutenberg->enqueue_block_scripts('')
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\thegioicongnghe\wp-admin\edit-form-blocks.php(353): do_action('enqueue_block_e...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-admin\post-new.php(76): include('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php on line 42
+
+2019-03-26T10:10:14+00:00 CRITICAL Uncaught Error: Call to undefined function wp_get_jed_locale_data() in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php:42
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): MetaSlider_Gutenberg->enqueue_block_scripts('')
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\thegioicongnghe\wp-admin\edit-form-blocks.php(353): do_action('enqueue_block_e...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-admin\post-new.php(76): include('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php on line 42
+
