@@ -99,7 +99,7 @@
 								| <a href="<?php echo wp_logout_url(); ?>" > Đăng xuất</a>
 							</div>
 						<?php endif; ?>
-						<div class="tg_user">
+						<div class="tg_user <?php if (is_user_logged_in()): echo 'user_logged_in'; ?> <?php endif; ?> ">
 							<i class="fa fa-user" aria-hidden="true"></i>
 							<div class="tg-sub-menu">
 								<p><a href="<?php echo get_site_url().'/tai-khoan';?>">Đăng nhập</a> | <a href="<?php echo get_site_url().'/tai-khoan';?>">Đăng kí</a></p>

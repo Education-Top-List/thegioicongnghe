@@ -24,7 +24,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?> 
-<li  class="col-md-4 col-sm-4 list_item_product">
+
+	
+
+<li  class="col-md-4 col-sm-4  list_item_product">
 	<div class="product_inner">
 		
 

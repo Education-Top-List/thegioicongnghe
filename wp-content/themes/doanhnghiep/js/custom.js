@@ -23,6 +23,7 @@ jQuery(document).ready(function(){
 				slidesToShow: 3,
 				slidesToScroll: 1,
 				autoplay: true,
+				dots: false,
 				autoplaySpeed: 2000,
 					// fade: true,
 					cssEase: 'linear',

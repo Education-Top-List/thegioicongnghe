@@ -48,3 +48,5 @@ Stack trace:
 #5 {main}
   thrown in C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\ml-slider\admin\Gutenberg.php on line 42
 
+2019-03-26T16:51:09+00:00 CRITICAL syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\header.php on line 167
+

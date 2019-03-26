@@ -211,7 +211,7 @@ span.woocommerce-Price-amount{
   clear: both;
 }
 .loop_post_category_idx>.item_loop_post_category_idx .list_product_category>.list_item_product:nth-child(1) .product_inner .thumbnail{
-  height: 316px;
+  height: 328px;
 }
 
 .loop_post_category_idx>.item_loop_post_category_idx .list_product_category>.list_item_product:nth-child(1) .product_inner .product_meta{
@@ -226,6 +226,9 @@ span.woocommerce-Price-amount{
   z-index: 3;
   max-width: 420px;
   width: 100%;
+}
+.loop_post_category_idx>.item_loop_post_category_idx .list_product_category>.list_item_product:nth-child(1) .product_inner h3{
+  max-width: 600px;
 }
 .loop_post_category_idx>.item_loop_post_category_idx .list_product_category>.list_item_product:nth-child(1):hover .product_meta{
   top:40%;
@@ -369,7 +372,7 @@ span.woocommerce-Price-amount{
 }
 .nav_primary ul li a{
     display: inline-block;
-    padding: 15px 15px;
+    padding: 15px 20px;
     color: #fff;
     font-weight: 700;
     transition: all 0.3s;
@@ -631,6 +634,9 @@ article.post{
 .tg_user i.fa{
     font-size: 25px;
     color: #fff;
+}
+.user_logged_in{
+  display: none;
 }
 .tg_user .tg-sub-menu{
     visibility: hidden;
@@ -1348,11 +1354,11 @@ body.search-results .title_header strong{
 .fixed_menu {
   position: fixed;
   z-index: 9999;
-  box-shadow: 3px 3px 10px #9bd062;
+  box-shadow: 3px 5px 10px #adabab;
 }
 .fixed_menu .nav_primary ul li a{
-    padding:9px 15px;
-    font-size: 11px;
+    padding: 13px 15px 12x 15px;
+    font-size: 12px;
 }
 .fixed_menu .search_header{
     margin:3px 0px 0px 0px;
@@ -1731,32 +1737,28 @@ p.cart-empty{
 .list_products{
     clear: both;
 }
-.list_item_product .product_meta h3 a , .list_item_product .woocommerce-loop-product__title{
+.list_item_product .product_meta h3 a{
     font-size: 16px;
     color: #000;
-    display: inline-block;
-    line-height: 30px;
+    display: table-cell;
+    line-height: 24px;
+    vertical-align: middle;
 }
 
-.list_item_product .thumbnail img{
-    height: auto;
-    max-width: 72%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
+
 
 .list_item_product:hover .product_meta h3 a , .list_item_product:hover .woocommerce-loop-product__title{
     color:#ff9d00 ;
 }
-.list_item_product .product_meta h3 , .list_item_product .woocommerce-loop-product__title {
-   margin: 10px 0px;
-   height: initial;
+.list_item_product .product_meta h3 {
+   margin: 10px auto 5px auto;
+   /* height: initial; */
    overflow: hidden;
    text-align: center;
-   max-height: 32px;
-   overflow: hidden;
+   height: 48px;
+   display: table;
+   max-width: 220px;
+   width: 100%;
 }
 .list_item_product .product_meta .added_to_cart {
     display: none;
@@ -1773,6 +1775,7 @@ p.cart-empty{
     font-size: 16px;
     line-height: 25px;
     font-weight: 700;
+    color: #000;
 }
 .list_item_product .price ins span.amount{
   font-size: 13px;
@@ -1839,10 +1842,10 @@ p.cart-empty{
     display: none;
 }
 .woocommerce-account .woocommerce-MyAccount-navigation{
-    float: none;
+    float: none !important;
     display: table;
     margin: 20px auto;
-    width: initial;
+    width: initial !important;
 }
 .woocommerce-account .woocommerce-MyAccount-navigation [class*="link--downloads"]{
     display: none;
@@ -1892,8 +1895,8 @@ p.cart-empty{
     margin:20px auto 0px auto;
 }
 .woocommerce-account .woocommerce-MyAccount-content{
-    float:none;
-    width: 100%;
+    float: none !important;
+    width: 100% !important;
     text-align: center;
 }
 .woocommerce-MyAccount-content{
@@ -1919,7 +1922,7 @@ p.cart-empty{
     padding: 20px 0px;
     border-radius: 5px;
     font-size: 17px;
-    min-height: 120px;
+    /* min-height: 120px; */
 }
 .woocommerce-edit-address .woocommerce-MyAccount-content p{
     font-size: 22px;
@@ -1969,10 +1972,10 @@ p.cart-empty{
 .woocommerce-address-fields__field-wrapper>p.form-row{
  max-width: 600px;
  display: table;
- margin: 0px auto;
+ margin: 0px auto !important;
  clear: both;
- float: none;
- width: 100%;
+ float: none !important;
+ width: 100% !important;
 }
 .woocommerce-edit-account .form-row label{
    text-align: left !important; 
@@ -1982,14 +1985,14 @@ p.cart-empty{
     margin: 0px auto;
 }
 .woocommerce #respond input#submit, .woocommerce button.button, .woocommerce input.button{
-    padding: 10px 15px;
-    font-size: 13px;
+    padding: 10px 15px !important;
+    font-size: 15px !important;
     text-transform: uppercase;
     background: none;
-    background: #ffa500;
+    background: #ffa500 !important;
     color: #fff !important;
-    display: inline-block;
-    margin: 0px 0px 0px 8px;
+    display: inline-block !important;
+    margin: 10px 0px 0px 8px !important;
     font-weight: 700;
     border-radius: 5px;
 }
@@ -2060,6 +2063,23 @@ p.cart-empty{
 
 /* SINGLE PRODUCT */
 
+.list_item_product .woocommerce-loop-product__title{
+    font-size: 16px;
+    color: #000;
+    line-height: 24px;
+    margin: 0px 10px 10px 10px;
+    text-align: center;
+    /* height: 43px; */
+    /* overflow: hidden; */
+}
+.single-product  .list_item_product .thumbnail img{
+    height: auto;
+    max-width: 72%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
 .single-product .product_title {
     font-size: 25px;
     line-height: 32px;
@@ -2116,7 +2136,16 @@ p.cart-empty{
     max-width: 200px;
     height: 2px;
     background: #a52626;
+}
 
+.single-product .related .list_item_product .product_inner{
+  border:none;
+}
+.single-product .related .list_products_archive>.list_item_product:nth-child(1){
+  border-left: none;
+}
+.single-product .related  .list_products  {
+  margin:0px -15px !important;
 }
 .single-product .related .list_item_product{
     width: 25%;
@@ -2244,7 +2273,7 @@ p.cart-empty{
 .list_item_product .product_inner{
   position: relative;
   border: 1px solid #e6e6e6;
-  border-left: none;
+  /* border-left: none; */
 }
 .list_item_product:nth-child(1) , .list_item_product:nth-child(5n) {
   border-left: 1px solid #e6e6e6;
@@ -2373,9 +2402,9 @@ a.added_to_cart{
     height: auto;
 }
 .footer .footer-widget-area .textwidget p{
- font-size: 13px;
+ font-size: 15px;
  color: #9c9292;
- line-height: 22px;
+ line-height: 23px;
  margin: 0px 0px 10px 0px;
 }
 .footer  h3.widget-title{
