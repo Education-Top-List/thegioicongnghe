@@ -1,5 +1,5 @@
 
-<div class="list_post_item pw">
+<div class="list_post_item pw <?php if(is_product()){echo 'ispost';} ?>">
 	<?php  $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );  ?>
 	<figure class="thumbnail" style="background:url('<?php echo $image[0]; ?>');"><a href="<?php the_permalink(); ?>"><?php //the_post_thumbnail();?></a> </figure>
 	<div class="post_wrapper_content">

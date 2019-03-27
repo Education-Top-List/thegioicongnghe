@@ -13,14 +13,7 @@ get_header();
 		<div class="content_left">
 			<div class="banner_idx">
 				<div class="container">
-					    <?php 
-    $my_postid = 440;//This is page id or post id
-    $content_post = get_post($my_postid);
-    $content = $content_post->post_content;
-    $content = apply_filters('the_content', $content);
-    $content = str_replace(']]>', ']]&gt;', $content);
-    echo $content;
-    ?>
+		
 					<div class="row">
 						<div class="col-sm-8">
 							<?php echo do_shortcode('[metaslider id="312"]'); ?>
@@ -136,8 +129,7 @@ get_header();
 						  							<div class="product_inner">
 						  								<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $products->post->ID ), 'single-post-thumbnail' );?>
 						  								<figure class="thumbnail" style="background:url(<?php  echo $image[0]; ?>);" class="thumb_product" >
-						  									<a href="<?php echo get_permalink( $loop->post->ID ) ?>">
-						  									</a>
+						  									<a href="<?php echo get_permalink( $loop->post->ID ) ?>"><img src="<?php echo $image[0]; ?>"></a>
 						  								</figure>
 
 						  								<div class="product_meta">

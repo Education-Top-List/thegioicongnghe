@@ -40,11 +40,9 @@ do_action( 'woocommerce_before_main_content' );
 	<?php endif; ?>
 
 	<div class="row">
-		<div class="col-md-3 col-sm-3">
-			<?php get_template_part('includes/product/list_product_categories'); ?>
-		</div>
+	
 
-		<div class="col-md-9 col-sm-9">
+		<div class="col-sm-12">
 	<?php
 	/**
 	 * Hook: woocommerce_archive_description.

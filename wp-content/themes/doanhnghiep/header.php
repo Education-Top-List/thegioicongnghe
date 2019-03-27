@@ -76,7 +76,8 @@
 						<?php //get_search_form(); ?>
 						<form action="" role="search" method="get" id="searchform" action="<?php echo home_url('/');  ?>">
 							<div class="search">
-								<input type="text" value="" name="s" id="s" placeholder="Tìm kiếm">
+								<input type="text" value="<?php the_search_query(); ?>" name="s" id="s" placeholder="Tìm kiếm">
+								<input type="hidden" value="product" name="post_type">
 								<button type="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
 							</div>
 						</form>

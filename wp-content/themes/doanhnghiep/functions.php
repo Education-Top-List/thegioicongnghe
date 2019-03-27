@@ -1,10 +1,10 @@
 <?php
 //include get_template_directory().'/includes/admin/function-admin.php';
 function load_admin_style() {
-    wp_register_style( 'admin_css', get_template_directory_uri() . '/css/admin.css', false, '1.0.0' );
-    wp_enqueue_style('admin_css');
-   }
-    add_action( 'admin_enqueue_scripts', 'load_admin_style' );
+  wp_register_style( 'admin_css', get_template_directory_uri() . '/css/admin.css', false, '1.0.0' );
+  wp_enqueue_style('admin_css');
+}
+add_action( 'admin_enqueue_scripts', 'load_admin_style' );
 
   // Navigation menus 
 register_nav_menus(array(
@@ -44,69 +44,69 @@ function featured_images_setup(){
   add_image_size( 'thumbnail',300, 250, true ); //thumbnail
     add_image_size( 'medium', 600, 400, true ); //medium
     add_image_size( 'large', 1200, 800, true ); //large
-}
-add_action('after_setup_theme','featured_images_setup');
-  // ADD POST FORMAT SUPPORT
-add_theme_support('post-formats',array('aside','gallery','link'));
-  // ADD OUR WIDGETS LOCATION
-function our_widget_inits(){
-  register_sidebar(array(
-    'name' => 'Sidebar',
-    'id' => 'sidebar1',
-    'before_widget' => '<div id="%1$s" class="widget %2$s widget_area">',
-    'after_widget' => "</div>",
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-  ));
-
-}
-add_action('widgets_init','our_widget_inits');
-/** Filter & Hook In Widget Before Post Content .*/
-function before_post_widget() {
-  if ( is_home() && is_active_sidebar( 'sidebar1' ) ) { 
-    dynamic_sidebar('sidebar1', array(
-      'before' => '<div class="before-post">',
-      'after' => '</div>',
-    ) );      
   }
-}
-add_action( 'woo_loop_before', 'before_post_widget' );
-// ADD THEME CUSTOM LOGO
-add_theme_support( 'custom-logo' );
-//  ADD BREADCRUMB
-  function the_breadcrumb() {
- 
-  if (!is_front_page()) {
-    echo '<li><a href="';
-    echo home_url();
-    echo '">';
-    echo 'Trang chủ ';
-    echo "</a><li>";
-    if (is_category() || is_single()) {
-      echo '';
-      the_category(' ');
-      if (is_single()) {
-        echo "<li>";
-        the_title();
-        echo '</li>';
-      }
-    } elseif (is_page()) {
-      echo '';
-      echo the_title();
-      echo '';
-    } elseif (is_home()) {
-      echo wp_title('');
+  add_action('after_setup_theme','featured_images_setup');
+  // ADD POST FORMAT SUPPORT
+  add_theme_support('post-formats',array('aside','gallery','link'));
+  // ADD OUR WIDGETS LOCATION
+  function our_widget_inits(){
+    register_sidebar(array(
+      'name' => 'Sidebar',
+      'id' => 'sidebar1',
+      'before_widget' => '<div id="%1$s" class="widget %2$s widget_area">',
+      'after_widget' => "</div>",
+      'before_title' => '<h3 class="widget-title">',
+      'after_title' => '</h3>',
+    ));
+
+  }
+  add_action('widgets_init','our_widget_inits');
+  /** Filter & Hook In Widget Before Post Content .*/
+  function before_post_widget() {
+    if ( is_home() && is_active_sidebar( 'sidebar1' ) ) { 
+      dynamic_sidebar('sidebar1', array(
+        'before' => '<div class="before-post">',
+        'after' => '</div>',
+      ) );      
     }
   }
-  elseif (is_tag()) {single_tag_title();}
-  elseif (is_day()) {echo"Archive for "; the_time('F jS, Y'); echo'';}
-  elseif (is_month()) {echo"Archive for "; the_time('F, Y'); echo'';}
-  elseif (is_year()) {echo"Archive for "; the_time('Y'); echo'';}
-  elseif (is_author()) {echo"Author Archive"; echo'';}
-  elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "Blog Archives"; echo'';}
-  elseif (is_search()) {echo"Search Results"; echo'';}
- 
-}
+  add_action( 'woo_loop_before', 'before_post_widget' );
+// ADD THEME CUSTOM LOGO
+  add_theme_support( 'custom-logo' );
+//  ADD BREADCRUMB
+  function the_breadcrumb() {
+
+    if (!is_front_page()) {
+      echo '<li><a href="';
+      echo home_url();
+      echo '">';
+      echo 'Trang chủ ';
+      echo "</a><li>";
+      if (is_category() || is_single()) {
+        echo '';
+        the_category(' ');
+        if (is_single()) {
+          echo "<li>";
+          the_title();
+          echo '</li>';
+        }
+      } elseif (is_page()) {
+        echo '';
+        echo the_title();
+        echo '';
+      } elseif (is_home()) {
+        echo wp_title('');
+      }
+    }
+    elseif (is_tag()) {single_tag_title();}
+    elseif (is_day()) {echo"Archive for "; the_time('F jS, Y'); echo'';}
+    elseif (is_month()) {echo"Archive for "; the_time('F, Y'); echo'';}
+    elseif (is_year()) {echo"Archive for "; the_time('Y'); echo'';}
+    elseif (is_author()) {echo"Author Archive"; echo'';}
+    elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "Blog Archives"; echo'';}
+    elseif (is_search()) {echo"Search Results"; echo'';}
+
+  }
 //  END BREADCRUMB
 /*
  *  DUPLICATE POST IN  ADMIN. Dups appear as drafts. User is redirected to the edit screen
@@ -116,13 +116,13 @@ function rd_duplicate_post_as_draft(){
   if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'rd_duplicate_post_as_draft' == $_REQUEST['action'] ) ) ) {
     wp_die('No post to duplicate has been supplied!');
   }
- 
+
   /*
    * Nonce verification
    */
   if ( !isset( $_GET['duplicate_nonce'] ) || !wp_verify_nonce( $_GET['duplicate_nonce'], basename( __FILE__ ) ) )
     return;
- 
+
   /*
    * get the original post id
    */
@@ -131,19 +131,19 @@ function rd_duplicate_post_as_draft(){
    * and all the original post data then
    */
   $post = get_post( $post_id );
- 
+
   /*
    * if you don't want current user to be the new post author,
    * then change next couple of lines to this: $new_post_author = $post->post_author;
    */
   $current_user = wp_get_current_user();
   $new_post_author = $current_user->ID;
- 
+
   /*
    * if post data exists, create the post duplicate
    */
   if (isset( $post ) && $post != null) {
- 
+
     /*
      * new post data array
      */
@@ -162,12 +162,12 @@ function rd_duplicate_post_as_draft(){
       'to_ping'        => $post->to_ping,
       'menu_order'     => $post->menu_order
     );
- 
+
     /*
      * insert the post by wp_insert_post() function
      */
     $new_post_id = wp_insert_post( $args );
- 
+
     /*
      * get all current post terms ad set them to the new post draft
      */
@@ -176,7 +176,7 @@ function rd_duplicate_post_as_draft(){
       $post_terms = wp_get_object_terms($post_id, $taxonomy, array('fields' => 'slugs'));
       wp_set_object_terms($new_post_id, $post_terms, $taxonomy, false);
     }
- 
+
     /*
      * duplicate all post meta just in two SQL queries
      */
@@ -192,8 +192,8 @@ function rd_duplicate_post_as_draft(){
       $sql_query.= implode(" UNION ALL ", $sql_query_sel);
       $wpdb->query($sql_query);
     }
- 
- 
+
+
     /*
      * finally, redirect to the edit post screen for the new draft
      */
@@ -204,7 +204,7 @@ function rd_duplicate_post_as_draft(){
   }
 }
 add_action( 'admin_action_rd_duplicate_post_as_draft', 'rd_duplicate_post_as_draft' );
- 
+
 /*
  * Add the duplicate link to action list for post_row_actions
  */
@@ -214,7 +214,7 @@ function rd_duplicate_post_link( $actions, $post ) {
   }
   return $actions;
 }
- 
+
 add_filter( 'post_row_actions', 'rd_duplicate_post_link', 10, 2 );
 // duplicate page
 //add_filter('page_row_actions', 'rd_duplicate_post_link', 10, 2);
@@ -245,43 +245,43 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
   echo '<i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="amount_pdc">';
   echo sprintf(_n('%d', '%d', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> <?php //echo $woocommerce->cart->get_cart_total(); ?>
   <?php echo '</span>'; ?>
-  </a>
- <?php
- $fragments['a.cart-contents'] = ob_get_clean();
- return $fragments;
+</a>
+<?php
+$fragments['a.cart-contents'] = ob_get_clean();
+return $fragments;
 }
 // SHOW PRODUCT TO CART AJAX
 add_filter( 'woocommerce_widget_cart_is_hidden', 'always_show_cart', 40, 0 );
 function always_show_cart() {
-    return false;
+  return false;
 }
 add_filter( 'woocommerce_add_to_cart_fragments', function($fragments) {
-    ob_start();
-    ?>
-    <div class="header-quickcart">
-        <?php woocommerce_mini_cart(); ?>
-    </div> 
-    <?php $fragments['div.header-quickcart'] = ob_get_clean();
-    return $fragments;
+  ob_start();
+  ?>
+  <div class="header-quickcart">
+    <?php woocommerce_mini_cart(); ?>
+  </div> 
+  <?php $fragments['div.header-quickcart'] = ob_get_clean();
+  return $fragments;
 } );
 // CLEAR THE CART WHEN LOGOUT
 function clear_cart_logout() {
-    if( function_exists('WC') ){
-        WC()->cart->empty_cart();
-    }
+  if( function_exists('WC') ){
+    WC()->cart->empty_cart();
+  }
 }
 add_action('wp_logout', 'clear_cart_logout');
 // CLEART THE CART WHEN LOGIN
 function clear_persistent_cart_after_login( $user_login, $user ) {
-    $blog_id = get_current_blog_id();
+  $blog_id = get_current_blog_id();
     // persistent carts created in WC 3.1 and below
-    if ( metadata_exists( 'user', $user->ID, '_woocommerce_persistent_cart' ) ) {
-        delete_user_meta( $user->ID, '_woocommerce_persistent_cart' );
-    }
+  if ( metadata_exists( 'user', $user->ID, '_woocommerce_persistent_cart' ) ) {
+    delete_user_meta( $user->ID, '_woocommerce_persistent_cart' );
+  }
     // persistent carts created in WC 3.2+
-    if ( metadata_exists( 'user', $user->ID, '_woocommerce_persistent_cart_' . $blog_id ) ) {
-        delete_user_meta( $user->ID, '_woocommerce_persistent_cart_' . $blog_id );
-    }
+  if ( metadata_exists( 'user', $user->ID, '_woocommerce_persistent_cart_' . $blog_id ) ) {
+    delete_user_meta( $user->ID, '_woocommerce_persistent_cart_' . $blog_id );
+  }
 }
 add_action('wp_login', 'clear_persistent_cart_after_login', 10, 2);
 /**
@@ -289,39 +289,39 @@ add_action('wp_login', 'clear_persistent_cart_after_login', 10, 2);
  */
 add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
 function jk_woocommerce_breadcrumbs() {
-    return array(
-            'delimiter'   => ' ',
-            'wrap_before' => '<div class="breadcrumb" id="breadcrumb"><ul>',
-            'wrap_after'  => '</ul></div>',
-            'before'      => '<li>',
-            'after'       => '</li>',
-            'home'        => _x( 'Trang chủ', 'breadcrumb', 'woocommerce' ),
-        );
+  return array(
+    'delimiter'   => ' ',
+    'wrap_before' => '<div class="breadcrumb" id="breadcrumb"><ul>',
+    'wrap_after'  => '</ul></div>',
+    'before'      => '<li>',
+    'after'       => '</li>',
+    'home'        => _x( 'Trang chủ', 'breadcrumb', 'woocommerce' ),
+  );
 }
 // Remove the product rating display on product loops
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
 // add class thumbnail for product woocomerce archive 
 add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
 if ( ! function_exists( 'woocommerce_template_loop_product_thumbnail' ) ) {
-    function woocommerce_template_loop_product_thumbnail() {
-        echo woocommerce_get_product_thumbnail();
-    } 
+  function woocommerce_template_loop_product_thumbnail() {
+    echo woocommerce_get_product_thumbnail();
+  } 
 }
 if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {   
-    function woocommerce_get_product_thumbnail( $size = 'shop_catalog', $placeholder_width = 0, $placeholder_height = 0  ) {
-        global $post, $woocommerce;
-        $args = array( 'post_type' => 'product', 'posts_per_page' => 9, 'orderby' => 'date' );
-        $loop = new WP_Query( $args );
-         $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );
-        $output = '<figure class="thumbnail ">';
-        if ( has_post_thumbnail() ) {               
-            $output .= get_the_post_thumbnail( $post->ID, $size );
-        } else {
-             $output .= wc_placeholder_img( $size );
-        }                       
-        $output .= '</figure>';
-        return $output;
-    }
+  function woocommerce_get_product_thumbnail( $size = 'shop_catalog', $placeholder_width = 0, $placeholder_height = 0  ) {
+    global $post, $woocommerce;
+    $args = array( 'post_type' => 'product', 'posts_per_page' => 9, 'orderby' => 'date' );
+    $loop = new WP_Query( $args );
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );
+    $output = '<figure class="thumbnail ">';
+    if ( has_post_thumbnail() ) {               
+      $output .= get_the_post_thumbnail( $post->ID, $size );
+    } else {
+     $output .= wc_placeholder_img( $size );
+   }                       
+   $output .= '</figure>';
+   return $output;
+ }
 }
 /**
  * Change number of products that are displayed per page (shop page)
@@ -335,17 +335,48 @@ function new_loop_shop_per_page( $cols ) {
 }
 // REMOVE SIDEBAR SINGLE PRODUCT
 add_action( 'wp', 'bbloomer_remove_sidebar_product_pages' );
- 
+
 function bbloomer_remove_sidebar_product_pages() {
-if ( is_product() ) {
-remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+  if ( is_product() ) {
+    remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+  }
 }
-}
+
 // ADD BUTTON ADD TO CARD AJAX
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_loop_add_to_cart', 30 );
+//remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+//add_action( 'woocommerce_single_product_summary', 'woocommerce_template_loop_add_to_cart', 30 );
+
 // REMOVE WOOCOMERCE SHIPPING FIELDS
-add_filter( 'woocommerce_cart_needs_shipping_address', '__return_false');
+//add_filter( 'woocommerce_cart_needs_shipping_address', '__return_false');
+
+
+//woocommerce_after_shop_loop_item_title
+
+add_action( 'woocommerce_after_shop_loop_item_title', 'bbloomer_custom_action', 15 );
+
+function bbloomer_custom_action() {
+  ?>
+
+  <div class="tg_btn_acts">
+    <ul>
+      <li class="add_c"><?php woocommerce_template_loop_add_to_cart( $products->post, $product ); ?></li>
+      <li class="detail_pd"><a href="<?php echo get_permalink( $loop->post->ID ) ?>"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+
+  <?php
+}
+
+//Show Total Sales
+add_action( 'woocommerce_single_product_summary', 'bbloomer_product_sold_count', 11 );
+
+function bbloomer_product_sold_count() {
+  global $product;
+  $units_sold = get_post_meta( $product->get_id(), 'total_sales', true );
+  if ( $units_sold ) echo '<p>' . sprintf( __( 'Units Sold: %s', 'woocommerce' ), $units_sold ) . '</p>';
+}
+
+
 // REMOVE CSS WP_HEAD
 //xoa header
 remove_action('wp_head', 'rsd_link');
@@ -356,13 +387,6 @@ remove_action( 'wp_head', 'feed_links', 2 );
 remove_action('wp_head', 'feed_links_extra', 3 );
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 add_action( 'woocommerce_product_thumbnails', 'bbloomer_custom_action', 10 );
- 
-function bbloomer_custom_action() {
-echo 'TEST';
-}
-
-
-
 
 /**
  * Check if product has attributes, dimensions or weight to override the call_user_func() expects parameter 1 to be a valid callback error when changing the additional tab
@@ -376,9 +400,9 @@ function woo_rename_tabs( $tabs ) {
   if( $product->has_attributes() || $product->has_dimensions() || $product->has_weight() ) { // Check if product has attributes, dimensions or weight
     $tabs['additional_information']['title'] = __( 'Product Data' );  // Rename the additional information tab
   }
- 
+
   return $tabs;
- 
+
 } 
 
 
@@ -388,17 +412,17 @@ function woo_rename_tabs( $tabs ) {
 add_action( 'add_meta_boxes', 'create_custom_meta_box' );
 if ( ! function_exists( 'create_custom_meta_box' ) )
 {
-    function create_custom_meta_box()
-    {
-        add_meta_box(
-            'custom_product_meta_box',  __( 'Thông số kỹ thuật', 'cmb' ), 'add_custom_content_meta_box', 'product', 'normal','default'
-        );
-    }
+  function create_custom_meta_box()
+  {
+    add_meta_box(
+      'custom_product_meta_box',  __( 'Thông số kỹ thuật', 'cmb' ), 'add_custom_content_meta_box', 'product', 'normal','default'
+    );
+  }
 }
 
 //  Custom metabox content in admin product pages
 if ( ! function_exists( 'add_custom_content_meta_box' ) ){
-    function add_custom_content_meta_box( $post ){
+  function add_custom_content_meta_box( $post ){
         $prefix = '_bhww_'; // global $prefix;
 
         $tskt = get_post_meta($post->ID, $prefix.'tskt_ip', true) ? get_post_meta($post->ID, $prefix.'tskt_ip', true) : '';
@@ -408,86 +432,102 @@ if ( ! function_exists( 'add_custom_content_meta_box' ) ){
 
 
         echo '<input type="hidden" name="custom_product_field_nonce" value="' . wp_create_nonce() . '">';
+      }
     }
-}
 
 
 
 //Save the data of the Meta field
-add_action( 'save_post', 'save_custom_content_meta_box', 10, 1 );
-if ( ! function_exists( 'save_custom_content_meta_box' ) )
-{
+    add_action( 'save_post', 'save_custom_content_meta_box', 10, 1 );
+    if ( ! function_exists( 'save_custom_content_meta_box' ) )
+    {
 
-    function save_custom_content_meta_box( $post_id ) {
+      function save_custom_content_meta_box( $post_id ) {
         $prefix = '_bhww_'; // global $prefix;
 
         // We need to verify this with the proper authorization (security stuff).
 
         // Check if our nonce is set.
         if ( ! isset( $_POST[ 'custom_product_field_nonce' ] ) ) {
-            return $post_id;
+          return $post_id;
         }
         $nonce = $_REQUEST[ 'custom_product_field_nonce' ];
 
         //Verify that the nonce is valid.
         if ( ! wp_verify_nonce( $nonce ) ) {
-            return $post_id;
+          return $post_id;
         }
 
         // If this is an autosave, our form has not been submitted, so we don't want to do anything.
         if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-            return $post_id;
+          return $post_id;
         }
 
         // Check the user's permissions.
         if ( 'product' == $_POST[ 'post_type' ] ){
-            if ( ! current_user_can( 'edit_product', $post_id ) )
-                return $post_id;
+          if ( ! current_user_can( 'edit_product', $post_id ) )
+            return $post_id;
         } else {
-            if ( ! current_user_can( 'edit_post', $post_id ) )
-                return $post_id;
+          if ( ! current_user_can( 'edit_post', $post_id ) )
+            return $post_id;
         }
 
         // Sanitize user input and update the meta field in the database.
         update_post_meta( $post_id, $prefix.'tskt_ip', wp_kses_post($_POST[ 'tskt_ip' ]) );
+      }
     }
-}
 
 ## ---- 2. Front-end ---- ##
 
 // Create custom tabs in product single pages
-add_filter( 'woocommerce_product_tabs', 'custom_product_tabs' );
-function custom_product_tabs( $tabs ) {
-    global $post;
+    add_filter( 'woocommerce_product_tabs', 'custom_product_tabs' );
+    function custom_product_tabs( $tabs ) {
+      global $post;
 
-    $product_tskt = get_post_meta( $post->ID, '_bhww_tskt_ip', true );
+      $product_tskt = get_post_meta( $post->ID, '_bhww_tskt_ip', true );
 
-    if ( ! empty( $product_tskt ) )
+      if ( ! empty( $product_tskt ) )
         $tabs['tskt_tab'] = array(
-            'title'    => __( 'Thông số kỹ thuật', 'woocommerce' ),
-            'priority' => 10,
-            'callback' => 'tskt_product_tab_content'
+          'title'    => __( 'Thông số kỹ thuật', 'woocommerce' ),
+          'priority' => 10,
+          'callback' => 'tskt_product_tab_content'
         );
 
-    return $tabs;
-}
+      return $tabs;
+    }
 
 // Remove description heading in tabs content
-add_filter('woocommerce_product_description_heading', '__return_null');
+    add_filter('woocommerce_product_description_heading', '__return_null');
 
 // Add content to custom tab in product single pages (1)
-function tskt_product_tab_content() {
-    global $post;
+    function tskt_product_tab_content() {
+      global $post;
 
-    $product_tskt = get_post_meta( $post->ID, '_bhww_tskt_ip', true );
+      $product_tskt = get_post_meta( $post->ID, '_bhww_tskt_ip', true );
 
-    if ( ! empty( $product_tskt ) ) {
+      if ( ! empty( $product_tskt ) ) {
         // Updated to apply the_content filter to WYSIWYG content
         echo apply_filters( 'the_content', $product_tskt );
+      }
     }
-}
 
 // Keep old Editor
-add_filter('use_block_editor_for_post', '__return_false');
+    add_filter('use_block_editor_for_post', '__return_false');
 
+    function add_content_after_addtocart() {
 
+    // get the current post/product ID
+      $current_product_id = get_the_ID();
+
+    // get the product based on the ID
+      $product = wc_get_product( $current_product_id );
+
+    // get the "Checkout Page" URL
+      $checkout_url = WC()->cart->get_checkout_url();
+
+    // run only on simple products
+      if( $product->is_type( 'simple' ) ){
+        echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt">Checkout</a>';
+      }
+    }
+    add_action( 'woocommerce_after_add_to_cart_button', 'add_content_after_addtocart' );

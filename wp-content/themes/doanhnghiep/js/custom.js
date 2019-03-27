@@ -124,12 +124,35 @@ jQuery(document).ready(function(){
 			jQuery(this).addClass('active').siblings().removeClass('active, editBefore_li_product ');
 		});
 
-		jQuery('.button_start').click(function(){
-			jQuery('.area_start_button').slideUp();
-			jQuery('.wq_quizCtr').delay(300).slideDown();
+		
+		
+		var cart = jQuery('.g_cart');
+		addToCart = $('.tg_btn_acts li.add_c a.add_to_cart_button');
+		addToCart.on('click', function (evt) {
+	
+			var el = $(this),
+			item = el.parents('.product_inner'),
+			img = item.find('img'),
+			cartTopOffset = cart.offset().top - item.offset().top,
+			cartLeftOffset = cart.offset().left - item.offset().left;
+			console.log(cartTopOffset);
+			console.log(cartLeftOffset);
+			var flyingImg = $('<img class="b-flying-img">');
+			flyingImg.attr('src', img.attr('src'));
+			flyingImg.css('width', '200').css('height', '200');
+			flyingImg.animate({
+				top: cartTopOffset,
+				left: cartLeftOffset,
+				width: 50,
+				height: 50,
+				opacity: 0.1
+			}, 800, function () {
+				flyingImg.remove();
+			});
+			el.parents('.product_inner').append(flyingImg);
 		});
 		
+		jQuery('span.onsale').text('Sale');
 
-		
-});
+	});
 

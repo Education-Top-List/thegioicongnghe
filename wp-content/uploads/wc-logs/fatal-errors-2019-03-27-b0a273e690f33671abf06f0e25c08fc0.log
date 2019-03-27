@@ -1,2 +1,25 @@
 2019-03-27T08:21:56+00:00 CRITICAL syntax error, unexpected '}', expecting end of file in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\header.php on line 74
 
+2019-03-27T14:39:23+00:00 CRITICAL syntax error, unexpected '<' in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 502
+
+2019-03-27T15:31:30+00:00 CRITICAL Uncaught Error: Call to a member function have_posts() on null in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\content-product.php:33
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\woocommerce\includes\wc-core-functions.php(181): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\archive-product.php(81): wc_get_template_part('content', 'product')
+#3 C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\woocommerce\includes\wc-core-functions.php(211): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\taxonomy-product_cat.php(22): wc_get_template('archive-product...')
+#5 C:\xampp\htdocs\thegioicongnghe\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\thegioicongnghe\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...') in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\content-product.php on line 33
+
+2019-03-27T15:54:53+00:00 CRITICAL Uncaught Error: Call to a member function get_price_html() on null in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:371
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(286): bbloomer_custom_action('')
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\thegioicongnghe\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\content-product.php(61): do_action('woocommerce_aft...')
+#4 C:\xampp\htdocs\thegioicongnghe\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\thegioicongnghe\wp-content\plugins\woocommerce\includes\wc-core-functions.php(181): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\woocommerce\archive-product.php(81): wc_get_template_part('content', 'product')
+#7 C:\xampp\htdocs\thegioicongnghe\wp-con in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php on line 371
+

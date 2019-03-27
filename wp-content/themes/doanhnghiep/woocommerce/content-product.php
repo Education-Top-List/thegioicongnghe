@@ -27,10 +27,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 	
 
-<li  class="col-md-4 col-sm-4  list_item_product">
+<li  class="col-sm-4  list_item_product">
 	<div class="product_inner">
-		
-
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.
