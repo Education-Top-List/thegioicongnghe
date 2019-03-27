@@ -1,28 +1,20 @@
 
-<div class="scrolltop">
-	<i class="fa fa-angle-up" aria-hidden="true"></i>	
-</div>
+
 <footer class="footer">
 	<div class="container">
-		<div class="row">
-			<?php if(is_active_sidebar('footer1')) :?>
-				<div class="footer-widget-area col-md-4">
-					<?php dynamic_sidebar('footer1'); ?>
-				</div>
-			<?php endif ?>
-			<?php if(is_active_sidebar('footer2')) :?>
-				<div class="footer-widget-area  col-md-4">
-					<?php dynamic_sidebar('footer2'); ?>
-				</div>
-			<?php endif ?>
-			<?php if(is_active_sidebar('footer3')) :?>
-				<div class="footer-widget-area  col-md-4">
-					<?php dynamic_sidebar('footer3'); ?>
-				</div>
-			<?php endif ?>
-		</div>
+	       <?php 
+    $my_postid = 440;//This is page id or post id
+    $content_post = get_post($my_postid);
+    $content = $content_post->post_content;
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    echo $content;
+    ?>
 	</div>
 </footer>
+<div class="scrolltop">
+  <i class="fa fa-angle-up" aria-hidden="true"></i> 
+</div>
 <?php wp_footer(); ?>
 
 

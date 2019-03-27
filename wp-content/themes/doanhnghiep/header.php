@@ -34,7 +34,6 @@
 				?>
 				<?php wp_nav_menu($args);?>
 			</nav>
-
 		</div>
 	<?php }?>
 	<header class="header">
@@ -61,11 +60,18 @@
 						<h2><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h2>
 					<?php } ?>
 				</div>
+				
 				<div class="search_address">
-					<div class="address_header">
-						<p><i class="fa fa-phone" aria-hidden="true"></i><strong>Hotline : </strong><a href="tel:0969 95 99 88"> 036 334 9096</a></p>
-						<p><i class="fa fa-map-marker" aria-hidden="true"></i><strong>Địa chỉ : </strong>Số 1 Đào Duy Anh - Đống Đa - Hà Nội</p>
-					</div>
+					<?php if(get_option('address_header') || get_option('phone')) { ?>
+						<div class="address_header">
+							<?php if(get_option('phone')){ ?>
+							<p><i class="fa fa-phone" aria-hidden="true"></i><strong>Hotline : </strong><a href="tel:0969 95 99 88"> 036 334 9096</a></p>
+							<?php }?>
+							<?php if(get_option('address_header')){ ?>
+							<p><i class="fa fa-map-marker" aria-hidden="true"></i><strong>Địa chỉ : </strong><?php echo get_option('address_header'); ?></p>
+							<?php }?>
+						</div>
+					<?php }?>
 					<div class="search_header">
 						<?php //get_search_form(); ?>
 						<form action="" role="search" method="get" id="searchform" action="<?php echo home_url('/');  ?>">
@@ -76,10 +82,8 @@
 						</form>
 					</div>
 				</div>
-				
 			</div>
 		</div>
-
 
 		<div class="middle_header sticky">
 			<div class="container">
@@ -120,46 +124,46 @@
 					</div>
 				</div>
 			</div>
+			<?php if(is_front_page() && !is_home()){ ?>
+				<div class="tg_commit">
+					<div class="container">
+						<div class="wrap_ul_commit">
+							<ul class="row">
+								<li class="col-sm-4">
+									<div class="wrap_commit">
+										<figure class="thumbnail"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></figure>
+										<div class="textwidget">
+											<p>Hoàn tiền 100%</p>
+											<span>Nếu không hài lòng về sản phẩm</span>	
+										</div>
 
-			<div class="tg_commit">
-				<div class="container">
-					<div class="wrap_ul_commit">
-						<ul class="row">
-							<li class="col-sm-4">
-								<div class="wrap_commit">
-									<figure class="thumbnail"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></figure>
-									<div class="textwidget">
-										<p>Hoàn tiền 100%</p>
-										<span>Nếu không hài lòng về sản phẩm</span>	
 									</div>
+								</li>
+								<li class="col-sm-4">
+									<div class="wrap_commit">
+										<figure class="thumbnail"><i class="fa fa-star-o" aria-hidden="true"></i></figure>
+										<div class="textwidget">
+											<p>Uy tín và chất lượng</p>	
+											<span>Cam kết mang đến những sản phẩm tốt nhất </span>
+										</div>
+									</div>
+								</li>
+								<li class="col-sm-4">
+									<div class="wrap_commit">
+										<figure class="thumbnail"><i class="fa fa-phone" aria-hidden="true"></i></figure>
+										<div class="textwidget">
+											<p>Hỗ trợ 24/7</p>
+											<span>Hãy gọi chúng tôi để được tư vấn</span>
+										</div>
 
-								</div>
-							</li>
-							<li class="col-sm-4">
-								<div class="wrap_commit">
-									<figure class="thumbnail"><i class="fa fa-star-o" aria-hidden="true"></i></figure>
-									<div class="textwidget">
-										<p>Uy tín và chất lượng</p>	
-										<span>Cam kết mang đến những sản phẩm tốt nhất </span>
 									</div>
-								</div>
-							</li>
-							<li class="col-sm-4">
-								<div class="wrap_commit">
-									<figure class="thumbnail"><i class="fa fa-phone" aria-hidden="true"></i></figure>
-									<div class="textwidget">
-										<p>Hỗ trợ 24/7</p>
-										<span>Hãy gọi chúng tôi để được tư vấn</span>
-									</div>
+								</li>
+							</ul>
+						</div>
 
-								</div>
-							</li>
-						</ul>
 					</div>
-					
 				</div>
-			</div>
-
+			<?php } ?>
 		</header>
 
 

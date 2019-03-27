@@ -13,9 +13,40 @@ get_header();
 		<div class="content_left">
 			<div class="banner_idx">
 				<div class="container">
+					    <?php 
+    $my_postid = 440;//This is page id or post id
+    $content_post = get_post($my_postid);
+    $content = $content_post->post_content;
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    echo $content;
+    ?>
 					<div class="row">
-						<div class="col-sm-9">
+						<div class="col-sm-8">
 							<?php echo do_shortcode('[metaslider id="312"]'); ?>
+						</div>
+						<div class="col-sm-4">
+							<?php 
+							$argsQuery = array(
+								'posts_per_page'   => 3,
+							);?>
+							<div class="posts_banner_idx">
+								<h3><span>Tin công nghệ</span></h3>
+								<div class="list_post_content">
+
+									<?php
+									$wp_query = new WP_Query(); $wp_query->query($argsQuery);
+									if(have_posts()): 
+										while($wp_query->have_posts()) : $wp_query->the_post(); 
+											get_template_part('includes/frontend/loop/loop_post');		
+										endwhile;
+									else:
+									endif;
+									?>
+
+									<?php wp_reset_postdata();?>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

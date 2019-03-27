@@ -58,9 +58,9 @@ if(have_posts()) :
 						<div class="list_post_categories">
 							<?php 
 							while(have_posts()): the_post();
-								get_template_part('content');
+								get_template_part('includes/frontend/loop/loop_post');
 							endwhile;
-							get_template_part('includes/pagination');
+							get_template_part('includes/frontend/pagination/pagination');
 							?>
 						</div>
 						<?php

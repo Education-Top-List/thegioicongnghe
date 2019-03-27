@@ -1,88 +1,74 @@
 <?php
-function zingvn_resources(){
-	wp_enqueue_style ('style', get_template_directory_uri().'/style.css');
-}
-add_action('wp_enqueue_scripts','zingvn_resources');
-	// Navigation menus 
+//include get_template_directory().'/includes/admin/function-admin.php';
+function load_admin_style() {
+    wp_register_style( 'admin_css', get_template_directory_uri() . '/css/admin.css', false, '1.0.0' );
+    wp_enqueue_style('admin_css');
+   }
+    add_action( 'admin_enqueue_scripts', 'load_admin_style' );
+
+  // Navigation menus 
 register_nav_menus(array(
-	'primary' => __('Primary Menu'),
-	'menu_mobile' => __('Mobile Menu')
+  'primary' => __('Primary Menu'),
+  'menu_mobile' => __('Mobile Menu')
 ));
-	// Get top ancestor id
+  // Get top ancestor id
 function get_top_ancestor_id(){
-	global $post;
-	if($post->post_parent){
-		$ancestors= array_reverse(get_post_ancestors($post->ID));
-		return $ancestors[0];
-	}	
-	return $post->ID;
+  global $post;
+  if($post->post_parent){
+    $ancestors= array_reverse(get_post_ancestors($post->ID));
+    return $ancestors[0];
+  } 
+  return $post->ID;
 }
-	// Does page have children ? 
+  // Does page have children ? 
 function has_children(){
-	global $post;
-	$pages = get_pages('child_of=' . $post->ID);
-	return count($pages);
+  global $post;
+  $pages = get_pages('child_of=' . $post->ID);
+  return count($pages);
 }
-	// Customize excerpt word count length
+  // Customize excerpt word count length
 function excerpt($limit) {
-	$excerpt = explode(' ', get_the_excerpt(), $limit);
-	if (count($excerpt)>=$limit) {
-		array_pop($excerpt);
-		$excerpt = implode(" ",$excerpt).'...';
-	} else {
-		$excerpt = implode(" ",$excerpt);
-	} 
-	$excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
-	return $excerpt;
+  $excerpt = explode(' ', get_the_excerpt(), $limit);
+  if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  } 
+  $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+  return $excerpt;
 }
-	// ADD FEATURED IMAGE SUPPORT
+  // ADD FEATURED IMAGE SUPPORT
 function featured_images_setup(){
-	add_theme_support('post-thumbnails');
+  add_theme_support('post-thumbnails');
   add_image_size( 'thumbnail',300, 250, true ); //thumbnail
     add_image_size( 'medium', 600, 400, true ); //medium
     add_image_size( 'large', 1200, 800, true ); //large
 }
 add_action('after_setup_theme','featured_images_setup');
-	// ADD POST FORMAT SUPPORT
+  // ADD POST FORMAT SUPPORT
 add_theme_support('post-formats',array('aside','gallery','link'));
-	// ADD OUR WIDGETS LOCATION
+  // ADD OUR WIDGETS LOCATION
 function our_widget_inits(){
-	register_sidebar(array(
-		'name' => 'Sidebar',
-		'id' => 'sidebar1',
-		'before_widget' => '<div id="%1$s" class="widget %2$s widget_area">',
-		'after_widget' => "</div>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	));
-	register_sidebar(array(
-		'name' => 'Footer area 1',
-		'id' => 'footer1',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	));
-	register_sidebar(array(
-		'name' => 'Footer area 2',
-		'id' => 'footer2',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	));
-	register_sidebar(array(
-		'name' => 'Footer area 3',
-		'id' => 'footer3',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	));
+  register_sidebar(array(
+    'name' => 'Sidebar',
+    'id' => 'sidebar1',
+    'before_widget' => '<div id="%1$s" class="widget %2$s widget_area">',
+    'after_widget' => "</div>",
+    'before_title' => '<h3 class="widget-title">',
+    'after_title' => '</h3>',
+  ));
+
 }
 add_action('widgets_init','our_widget_inits');
 /** Filter & Hook In Widget Before Post Content .*/
 function before_post_widget() {
-	if ( is_home() && is_active_sidebar( 'sidebar1' ) ) { 
-		dynamic_sidebar('sidebar1', array(
-			'before' => '<div class="before-post">',
-			'after' => '</div>',
-		) );      
-	}
+  if ( is_home() && is_active_sidebar( 'sidebar1' ) ) { 
+    dynamic_sidebar('sidebar1', array(
+      'before' => '<div class="before-post">',
+      'after' => '</div>',
+    ) );      
+  }
 }
 add_action( 'woo_loop_before', 'before_post_widget' );
 // ADD THEME CUSTOM LOGO

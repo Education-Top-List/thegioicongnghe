@@ -1,40 +1,22 @@
-
 <?php 
 /*
-Template Name: page-template-lienhe
+Template Name: page-template-lienhehuhu
 */
 get_header(); 
 ?>	
 
 <div class="page-wrapper">
-
+	<div class="g_content">
 		<div class="container">
-
-			<div id="breadcrumb" class="breadcrumb">
-				<ul>
-					<?php  echo the_breadcrumb(); ?>
-				</ul>
-			</div> 
-
-			<?php
-
-			while ( have_posts() ) : the_post(); ?> 
-			<div class="entry-content-page">
-				<?php the_content(); ?> <!-- Page Content -->
-			</div>
-
-			<?php
-    endwhile; //resetting the page loop
-    wp_reset_query(); //resetting the page query
-    ?>
+				<?php 
+		$my_postid = 150;//This is page id or post id
+		$content_post = get_post($my_postid);
+		$content = $content_post->post_content;
+		$content = apply_filters('the_content', $content);
+		$content = str_replace(']]>', ']]&gt;', $content);
+		echo $content;
+		?>
 </div><!-- container -->
-
-
 </div>
-
-
+</div>
 <?php get_footer(); ?>
-
-
-
-
