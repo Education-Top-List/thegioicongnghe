@@ -1,0 +1,4 @@
+2019-03-28T07:49:32+00:00 CRITICAL syntax error, unexpected '}', expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\footer.php on line 10
+
+2019-03-28T08:30:48+00:00 CRITICAL syntax error, unexpected '?>' in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php on line 75
+

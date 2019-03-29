@@ -28,7 +28,8 @@ if ( $max_value && $min_value === $max_value ) {
 	$labelledby = ! empty( $args['product_name'] ) ? sprintf( __( '%s quantity', 'woocommerce' ), strip_tags( $args['product_name'] ) ) : '';
 	?>
 	<div class="quantity">
-		<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></label>
+		<button type="button" class="minus" >-</button>
+		
 		<input
 			type="number"
 			id="<?php echo esc_attr( $input_id ); ?>"
@@ -43,6 +44,7 @@ if ( $max_value && $min_value === $max_value ) {
 			pattern="<?php echo esc_attr( $pattern ); ?>"
 			inputmode="<?php echo esc_attr( $inputmode ); ?>"
 			aria-labelledby="<?php echo esc_attr( $labelledby ); ?>" />
+			<button type="button" class="plus" >+</button>
 	</div>
 	<?php
 }

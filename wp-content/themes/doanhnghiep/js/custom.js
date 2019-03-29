@@ -154,5 +154,12 @@ jQuery(document).ready(function(){
 		
 		jQuery('span.onsale').text('Sale');
 
+		var minicart_length = jQuery('.cart_list li').length;
+		if ( minicart_length> 5 ) {
+			console.log('minicart>5');
+		}
+		else{
+			console.log('nho hon 5');
+		}
 	});
 

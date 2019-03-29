@@ -4,6 +4,9 @@
 	$phone = esc_attr(get_option('phone'));
 	$address_header = esc_attr(get_option('address_header'));
 	$footer_fb = esc_attr(get_option('footer_fb'));
+	$footer_twitter = esc_attr(get_option('footer_fb'));
+	$footer_ggplus = esc_attr(get_option('footer_fb'));
+	$footer_insta = esc_attr(get_option('footer_fb'));
 	?>
 	<form method="post" action="options.php" class="zang-general-form"> 
 		<?php settings_fields('zang-settings-groups'); ?>

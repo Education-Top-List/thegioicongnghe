@@ -36,6 +36,7 @@
 			</nav>
 		</div>
 	<?php }?>
+
 	<header class="header">
 		<div class="top_header">
 			<!-- display account top_header mobile -->
@@ -43,7 +44,7 @@
 			<div class="after_login after_login_mb">
 				<a href="<?php echo get_site_url();?>/tai-khoan">	
 					<?php  $current_user = wp_get_current_user();
-					echo 'Xin chào : ' . $current_user->user_login . '';
+					echo '' . $current_user->user_login . '';
 					?></a>
 					| <a href="<?php echo wp_logout_url(); ?>" > Đăng xuất</a>
 				</div>
@@ -74,7 +75,7 @@
 					<?php }?>
 					<div class="search_header">
 						<?php //get_search_form(); ?>
-						<form action="" role="search" method="get" id="searchform" action="<?php echo home_url('/');  ?>">
+						<form role="search" method="get" id="searchform" action="<?php echo home_url('/');  ?>">
 							<div class="search">
 								<input type="text" value="<?php the_search_query(); ?>" name="s" id="s" placeholder="Tìm kiếm">
 								<input type="hidden" value="product" name="post_type">
@@ -99,9 +100,9 @@
 						<div class="after_login">
 							<a href="<?php echo get_site_url();?>/tai-khoan">	
 								<?php  $current_user = wp_get_current_user();
-								echo 'Xin chào : ' . $current_user->user_login . '';
+								echo '' . $current_user->user_login . ' ';
 								?></a>
-								| <a href="<?php echo wp_logout_url(); ?>" > Đăng xuất</a>
+								|  <a href="<?php echo wp_logout_url(); ?>" > Đăng xuất</a>
 							</div>
 						<?php endif; ?>
 						<div class="tg_user <?php if (is_user_logged_in()): echo 'user_logged_in'; ?> <?php endif; ?> ">

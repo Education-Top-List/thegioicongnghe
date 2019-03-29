@@ -1,5 +1,5 @@
 <?php
-//include get_template_directory().'/includes/admin/function-admin.php';
+include get_template_directory().'/includes/admin/function-admin.php';
 function load_admin_style() {
   wp_register_style( 'admin_css', get_template_directory_uri() . '/css/admin.css', false, '1.0.0' );
   wp_enqueue_style('admin_css');
@@ -58,6 +58,19 @@ function featured_images_setup(){
       'before_title' => '<h3 class="widget-title">',
       'after_title' => '</h3>',
     ));
+      register_sidebar(array(
+    'name' => 'Footer area 1',
+    'id' => 'footer1',
+    'before_title' => '<h3 class="widget-title">',
+    'after_title' => '</h3>',
+  ));
+  register_sidebar(array(
+    'name' => 'Footer area 2',
+    'id' => 'footer2',
+    'before_title' => '<h3 class="widget-title">',
+    'after_title' => '</h3>',
+  ));
+
 
   }
   add_action('widgets_init','our_widget_inits');
@@ -346,8 +359,15 @@ function bbloomer_remove_sidebar_product_pages() {
 //remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 //add_action( 'woocommerce_single_product_summary', 'woocommerce_template_loop_add_to_cart', 30 );
 
+
 // REMOVE WOOCOMERCE SHIPPING FIELDS
-//add_filter( 'woocommerce_cart_needs_shipping_address', '__return_false');
+function disable_shipping_calc_on_cart( $show_shipping ) {
+    if( is_cart() ) {
+        return false;
+    }
+    return $show_shipping;
+}
+add_filter( 'woocommerce_cart_ready_to_calc_shipping', 'disable_shipping_calc_on_cart', 99 );
 
 
 //woocommerce_after_shop_loop_item_title
@@ -373,7 +393,7 @@ add_action( 'woocommerce_single_product_summary', 'bbloomer_product_sold_count',
 function bbloomer_product_sold_count() {
   global $product;
   $units_sold = get_post_meta( $product->get_id(), 'total_sales', true );
-  if ( $units_sold ) echo '<p>' . sprintf( __( 'Units Sold: %s', 'woocommerce' ), $units_sold ) . '</p>';
+  if ( $units_sold ) echo '<p class="tg_sold_out">' . sprintf( __( 'Số lượng đã bán: <strong>%s</strong>', 'woocommerce' ), $units_sold ) . '</p>';
 }
 
 
@@ -514,6 +534,9 @@ if ( ! function_exists( 'add_custom_content_meta_box' ) ){
 // Keep old Editor
     add_filter('use_block_editor_for_post', '__return_false');
 
+
+
+// Add button checkout single product 
     function add_content_after_addtocart() {
 
     // get the current post/product ID
@@ -527,7 +550,76 @@ if ( ! function_exists( 'add_custom_content_meta_box' ) ){
 
     // run only on simple products
       if( $product->is_type( 'simple' ) ){
-        echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt">Checkout</a>';
+        echo '<a href="'.$checkout_url.'?add-to-cart='.$current_product_id.'" class="single_add_to_cart_button button alt">Thanh toán ngay</a>';
       }
     }
     add_action( 'woocommerce_after_add_to_cart_button', 'add_content_after_addtocart' );
+
+
+
+function jh_add_script_to_footer(){
+    if( ! is_admin() ) { ?> 
+    <script>
+  
+jQuery(document).ready(function($){
+$(document).on('click', '.plus', function(e) { // replace '.quantity' with document (without single quote)
+    $input = $(this).prev('input.qty');
+    var val = parseInt($input.val());
+    var step = $input.attr('step');
+    step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
+    $input.val( val + step ).change();
+});
+$(document).on('click', '.minus',  // replace '.quantity' with document (without single quote)
+    function(e) {
+    $input = $(this).next('input.qty');
+    var val = parseInt($input.val());
+    var step = $input.attr('step');
+    step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
+    if (val > 0) {
+        $input.val( val - step ).change();
+    }
+});
+});
+</script>
+<?php
+    }
+}
+add_action( 'wp_footer', 'jh_add_script_to_footer' );
+
+// Move price under short description single product 
+function move_single_product_price() {
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+    add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 29);
+}
+add_action('woocommerce_single_product_summary', 'move_single_product_price', 1);
+ 
+ 
+// Move price under short description single product 
+function move_single_product_sale_flash() {
+    remove_action('woocommerce_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
+    add_action('woocommerce_single_product_summary', 'woocommerce_show_product_sale_flash', 29);
+}
+add_action('woocommerce_single_product_summary', 'move_single_product_price', 1);
+
+// Remove sku single product
+function bbloomer_remove_product_page_sku( $enabled ) {
+    if ( !is_admin() && is_product() ) {
+        return false;
+    }
+ 
+    return $enabled;
+}
+add_filter( 'wc_product_sku_enabled', 'bbloomer_remove_product_page_sku' );
+
+
+function template_chooser($template)   
+{    
+  global $wp_query;   
+  $post_type = get_query_var('post_type');   
+  if( $wp_query->is_search && $post_type == 'products' )   
+  {
+    return locate_template('single-product/archive-product.php');  //  redirect to archive-search.php
+  }   
+  return $template;   
+}
+add_filter('template_include', 'template_chooser');   
