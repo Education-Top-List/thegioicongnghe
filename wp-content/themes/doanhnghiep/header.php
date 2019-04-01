@@ -49,7 +49,6 @@
 					| <a href="<?php echo wp_logout_url(); ?>" > Đăng xuất</a>
 				</div>
 			<?php endif; ?>
-
 			<span class="icon_mobile_click"><i class="fa fa-bars" aria-hidden="true"></i></span>
 			<div class="container">
 				<div class="logo_site">
@@ -66,7 +65,7 @@
 					<?php if(get_option('address_header') || get_option('phone')) { ?>
 						<div class="address_header">
 							<?php if(get_option('phone')){ ?>
-							<p><i class="fa fa-phone" aria-hidden="true"></i><strong>Hotline : </strong><a href="tel:0969 95 99 88"> 036 334 9096</a></p>
+							<p><i class="fa fa-phone" aria-hidden="true"></i><strong>Hotline : </strong><a href="tel:<?php echo get_option('phone'); ?>"> <?php echo get_option('phone'); ?></a></p>
 							<?php }?>
 							<?php if(get_option('address_header')){ ?>
 							<p><i class="fa fa-map-marker" aria-hidden="true"></i><strong>Địa chỉ : </strong><?php echo get_option('address_header'); ?></p>
@@ -89,6 +88,7 @@
 
 		<div class="middle_header sticky">
 			<div class="container">
+				<span class="icon_mobile_click"><i class="fa fa-bars" aria-hidden="true"></i></span>
 				<nav class="nav nav_primary">
 					<?php 
 					$args = array('theme_location' => 'primary');

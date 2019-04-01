@@ -92,18 +92,26 @@ jQuery(document).ready(function(){
 			jQuery("#page_wrapper").removeClass('page_wrapper_active');
 		});
 
+		// menu cap 2
 		jQuery('.mobile-menu ul.menu').children().has('ul.sub-menu').click(function(){
 			jQuery(this).children('ul').slideToggle();
 			jQuery(this).siblings().has('ul.sub-menu').find('ul.sub-menu').slideUp();
-		}).children('ul').children().click(function(event){event.stopPropagation()});
+			jQuery(this).siblings().find('ul.sub-menu>li').has('ul.sub-menu').removeClass('editBefore_mobile');
+		}).children('ul').children().click(function(event){event.stopPropagation();});
 		jQuery('.mobile-menu ul.menu').children().find('ul.sub-menu').children().has('ul.sub-menu').click(function(){
 			jQuery(this).find('ul.sub-menu').slideToggle();
 		});
+
+		//menu cap 3
+
+
+
+
 		jQuery('.mobile-menu ul.menu li').has('ul.sub-menu').click(function(event){
 			jQuery(this).toggleClass('editBefore_mobile');
 		});
 		jQuery('.mobile-menu ul.menu').children().has('ul.sub-menu').addClass('menu-item-has-children');
-		jQuery('.mobile-menu ul.menu li').click(function(){
+		jQuery('.mobile-menu ul.menu>li').click(function(){
 			$(this).addClass('active').siblings().removeClass('active, editBefore_mobile');
 		});
 
@@ -135,8 +143,6 @@ jQuery(document).ready(function(){
 			img = item.find('img'),
 			cartTopOffset = cart.offset().top - item.offset().top,
 			cartLeftOffset = cart.offset().left - item.offset().left;
-			console.log(cartTopOffset);
-			console.log(cartLeftOffset);
 			var flyingImg = $('<img class="b-flying-img">');
 			flyingImg.attr('src', img.attr('src'));
 			flyingImg.css('width', '200').css('height', '200');
@@ -156,10 +162,10 @@ jQuery(document).ready(function(){
 
 		var minicart_length = jQuery('.cart_list li').length;
 		if ( minicart_length> 5 ) {
-			console.log('minicart>5');
+			
 		}
-		else{
-			console.log('nho hon 5');
+		else{	
 		}
+		
 	});
 
