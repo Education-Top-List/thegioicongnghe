@@ -22,9 +22,11 @@ get_header();
 							<?php 
 							$argsQuery = array(
 								'posts_per_page'   => 3,
+								'orderby' => 'publish_date'
+
 							);?>
 							<div class="posts_banner_idx">
-								<h3><span>Tin công nghệ</span></h3>
+								<h3><span><?php echo get_cat_name(53); ?></span></h3>
 								<div class="list_post_content">
 
 									<?php

@@ -343,7 +343,7 @@ add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
 function new_loop_shop_per_page( $cols ) {
   // $cols contains the current number of products per page based on the value stored on Options -> Reading
   // Return the number of products you wanna show per page.
-  $cols = 9;
+  $cols = 12;
   return $cols;
 }
 // REMOVE SIDEBAR SINGLE PRODUCT
@@ -408,22 +408,7 @@ remove_action('wp_head', 'feed_links_extra', 3 );
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 add_action( 'woocommerce_product_thumbnails', 'bbloomer_custom_action', 10 );
 
-/**
- * Check if product has attributes, dimensions or weight to override the call_user_func() expects parameter 1 to be a valid callback error when changing the additional tab
- */
-add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
 
-function woo_rename_tabs( $tabs ) {
-
-  global $product;
-  
-  if( $product->has_attributes() || $product->has_dimensions() || $product->has_weight() ) { // Check if product has attributes, dimensions or weight
-    $tabs['additional_information']['title'] = __( 'Product Data' );  // Rename the additional information tab
-  }
-
-  return $tabs;
-
-} 
 
 
 ## ---- 1. Backend ---- ##

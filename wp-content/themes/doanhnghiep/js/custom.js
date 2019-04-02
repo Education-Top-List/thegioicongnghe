@@ -40,14 +40,14 @@ jQuery(document).ready(function(){
 					{
 						breakpoint: 600,
 						settings: {
-							slidesToShow: 1,
+							slidesToShow: 3,
 							slidesToScroll: 1
 						}
 					},
 					{
 						breakpoint: 480,
 						settings: {
-							slidesToShow: 1,
+							slidesToShow: 2,
 							slidesToScroll: 1
 						}
 					}
@@ -74,7 +74,7 @@ jQuery(document).ready(function(){
 			jQuery(".close_menu, .bg_opacity").show();
 		});
 		jQuery(".close_menu").click(function(){
-			jQuery(".icon_mobile_click").fadeIn(300);
+			jQuery(".top_header .icon_mobile_click").fadeIn(300);
 			jQuery("#menu_mobile_full").animate({left: "-260px"},260).removeClass('menu_show');
 			jQuery("#page_wrapper").removeClass('page_wrapper_active');
 			jQuery(this).hide();
@@ -85,12 +85,14 @@ jQuery(document).ready(function(){
 			jQuery("#page_wrapper").removeClass('page_wrapper_active');
 			jQuery('.close_menu').hide();
 			jQuery(this).hide();
-			jQuery('.icon_mobile_click').fadeIn(300);
+			jQuery('.top_header .icon_mobile_click').fadeIn(300);
 		});
 		jQuery("#menu_mobile_full ul li a").click(function(){
 			jQuery(".icon_mobile_click").fadeIn(300);
 			jQuery("#page_wrapper").removeClass('page_wrapper_active');
 		});
+
+		jQuery('.mobile-menu .menu>li:not(:has(ul.sub-menu)) , .mobile-menu .menu>li ul.sub-menu>li:not(:has(ul.sub-menu))').addClass('not-have-child');
 
 		// menu cap 2
 		jQuery('.mobile-menu ul.menu').children().has('ul.sub-menu').click(function(){
@@ -98,13 +100,16 @@ jQuery(document).ready(function(){
 			jQuery(this).siblings().has('ul.sub-menu').find('ul.sub-menu').slideUp();
 			jQuery(this).siblings().find('ul.sub-menu>li').has('ul.sub-menu').removeClass('editBefore_mobile');
 		}).children('ul').children().click(function(event){event.stopPropagation();});
-		jQuery('.mobile-menu ul.menu').children().find('ul.sub-menu').children().has('ul.sub-menu').click(function(){
-			jQuery(this).find('ul.sub-menu').slideToggle();
-		});
 
 		//menu cap 3
+		jQuery('.mobile-menu ul.menu>li>ul.sub-menu').children().has('ul.sub-menu').click(function(){
+			jQuery(this).children('ul.sub-menu').slideToggle();
+		}).children('ul').children().click(function(event){event.stopPropagation();});
 
-
+			//menu cap 4
+		jQuery('.mobile-menu ul.menu>li>ul.sub-menu>li>ul.sub-menu').children().has('ul.sub-menu').click(function(){
+			jQuery(this).children('ul.sub-menu').slideToggle();
+		}).children('ul').children().click(function(event){event.stopPropagation();});
 
 
 		jQuery('.mobile-menu ul.menu li').has('ul.sub-menu').click(function(event){
@@ -132,9 +137,9 @@ jQuery(document).ready(function(){
 			jQuery(this).addClass('active').siblings().removeClass('active, editBefore_li_product ');
 		});
 
-		
-		
-		var cart = jQuery('.g_cart');
+		var width = jQuery(window).width();
+		if(width>1100){
+			var cart = jQuery('.g_cart');
 		addToCart = $('.tg_btn_acts li.add_c a.add_to_cart_button');
 		addToCart.on('click', function (evt) {
 	
@@ -166,6 +171,8 @@ jQuery(document).ready(function(){
 		}
 		else{	
 		}
+		}
+		
 		
 	});
 

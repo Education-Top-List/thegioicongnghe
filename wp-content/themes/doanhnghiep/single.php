@@ -6,12 +6,13 @@ get_header();
 
 <div id="wrap">
 	<div class="g_content">
-		<div class="container">
-					<div id="breadcrumb" class="breadcrumb">
+		<div id="breadcrumb" class="breadcrumb">
 								<ul>
 									<?php  echo the_breadcrumb(); ?>
 								</ul>
 							</div> 
+		<div class="container">
+					
 			<div class="row">
 				<?php 
 				if(have_posts()) :

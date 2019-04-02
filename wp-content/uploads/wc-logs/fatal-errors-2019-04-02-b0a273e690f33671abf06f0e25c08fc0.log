@@ -1,0 +1,9 @@
+2019-04-02T09:45:47+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_cat_name(), 0 passed in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\page-template-trangchu.php on line 30 and exactly 1 expected in C:\xampp\htdocs\thegioicongnghe\wp-includes\category.php:204
+Stack trace:
+#0 C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\page-template-trangchu.php(30): get_cat_name()
+#1 C:\xampp\htdocs\thegioicongnghe\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\thegioicongnghe\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\thegioicongnghe\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\thegioicongnghe\wp-includes\category.php on line 204
+

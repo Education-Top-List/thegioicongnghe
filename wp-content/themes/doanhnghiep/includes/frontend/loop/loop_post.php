@@ -11,7 +11,7 @@
 	
 		
 		<?php if(is_search() OR is_archive()){?>
-			<p><?php echo excerpt(25); ?></p>
+			<div class="excerpt"><p><?php echo excerpt(25); ?></p></div>
 			<a class="readmore" href="<?php echo the_permalink(); ?>">Read more <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 		<?php } 
 		else {
