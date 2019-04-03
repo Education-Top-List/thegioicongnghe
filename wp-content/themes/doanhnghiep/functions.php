@@ -70,7 +70,12 @@ function featured_images_setup(){
     'before_title' => '<h3 class="widget-title">',
     'after_title' => '</h3>',
   ));
-
+   register_sidebar(array(
+    'name' => 'Footer area 3',
+    'id' => 'footer3',
+    'before_title' => '<h3 class="widget-title">',
+    'after_title' => '</h3>',
+  ));
 
   }
   add_action('widgets_init','our_widget_inits');

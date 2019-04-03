@@ -162,17 +162,13 @@ jQuery(document).ready(function(){
 			});
 			el.parents('.product_inner').append(flyingImg);
 		});
-		
+		} //endif
 		jQuery('span.onsale').text('Sale');
 
-		var minicart_length = jQuery('.cart_list li').length;
-		if ( minicart_length> 5 ) {
-			
-		}
-		else{	
-		}
-		}
-		
-		
+		jQuery('.single-product .woocommerce-product-gallery ul li').click(function(){
+			var link_img_preview =  jQuery(this).html();
+			jQuery('.tg_img_product img').replaceWith(link_img_preview);
+		});
+
 	});
 

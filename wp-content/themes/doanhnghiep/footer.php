@@ -4,16 +4,22 @@
 	<div class="container">
 	   <div class="row">
         <?php if(is_active_sidebar('footer1')) {?>
-            <div class="footer-widget-area col-sm-7">
+            <div class="footer-widget-area col-sm-4">
               <?php dynamic_sidebar('footer1'); ?>
             </div>
           <?php } ?>  
      
           <?php if(is_active_sidebar('footer2')) :?>
-            <div class="footer-widget-area col-sm-4 col-sm-offset-1">
+            <div class="footer-widget-area col-sm-4">
               <?php dynamic_sidebar('footer2'); ?>
             </div>
-        <?php endif ?>  
+        <?php endif ?> 
+          <?php if(is_active_sidebar('footer3')) :?>
+            <div class="footer-widget-area col-sm-4 ">
+              <?php dynamic_sidebar('footer3'); ?>
+            </div>
+        <?php endif ?> 
+
       </div>
 	</div>
 </footer>

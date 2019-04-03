@@ -21,9 +21,12 @@ get_header();
 						<div class="col-sm-4">
 							<?php 
 							$argsQuery = array(
-								'posts_per_page'   => 3,
-								'orderby' => 'publish_date'
-
+								'posts_per_page' => 3,
+					'cat' => 53,
+					'orderby' => 'post_date',
+					'order' => 'DESC',
+					'post_type' => 'post',
+					'post_status' => 'publish'
 							);?>
 							<div class="posts_banner_idx">
 								<h3><span><?php echo get_cat_name(53); ?></span></h3>
