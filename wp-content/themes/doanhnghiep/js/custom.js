@@ -79,6 +79,10 @@ jQuery(document).ready(function(){
 			jQuery("#page_wrapper").removeClass('page_wrapper_active');
 			jQuery(this).hide();
 			jQuery('.bg_opacity').hide();
+			if(jQuery('.middle_header').hasClass('fixed_menu')){
+				jQuery('.middle_header.fixed_menu .icon_mobile_click').show();
+			}
+			
 		});
 		jQuery('.bg_opacity').click(function(){
 			jQuery("#menu_mobile_full").animate({left: "-260px"},260).removeClass('menu_show');
@@ -86,7 +90,10 @@ jQuery(document).ready(function(){
 			jQuery('.close_menu').hide();
 			jQuery(this).hide();
 			jQuery('.top_header .icon_mobile_click').fadeIn(300);
-		});
+				if(jQuery('.middle_header').hasClass('fixed_menu')){
+				jQuery('.middle_header.fixed_menu .icon_mobile_click').show();
+			}
+			});
 		jQuery("#menu_mobile_full ul li a").click(function(){
 			jQuery(".icon_mobile_click").fadeIn(300);
 			jQuery("#page_wrapper").removeClass('page_wrapper_active');

@@ -37,6 +37,8 @@ define('DB_CHARSET', 'utf8mb4');
 /** Kiểu database collate. Đừng thay đổi nếu không hiểu rõ. */
 define('DB_COLLATE', '');
 
+
+
 /**#@+
  * Khóa xác thực và salt.
  *
@@ -56,6 +58,7 @@ define('AUTH_SALT',        'iYGkN }21Va`A#CtIu<4Q2wM}EAEdRM4T#mOc9iq+dCD}cJHjMqR
 define('SECURE_AUTH_SALT', '[Z[nq}o6X~U>KK/I}DODB*%dB-A{[9sP?GaVW:(_U+t`aDRbn#}SoSxwlTT/F>]Y');
 define('LOGGED_IN_SALT',   'iB0Sc(cR ]Pg$m!0$]*g~m6t<SUyrBDx>Fn)Nia$Pc|]Gd*bgTY.LiL~;#_g(Eik');
 define('NONCE_SALT',       'W7[0@<{4v@5j@@dyq%ze.CB}C=,/q0W{mx@[%P@OvpHK]zhri69X$m1@xD:KFt/2');
+
 
 /**#@-*/
 

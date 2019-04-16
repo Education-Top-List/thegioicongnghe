@@ -1,0 +1,12 @@
+2019-04-04T03:13:41+00:00 CRITICAL Cannot redeclare mytheme_add_woocommerce_support() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:246) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\frontend\woocommerce\woocommerce.php on line 6
+
+2019-04-04T03:14:11+00:00 CRITICAL Cannot redeclare mytheme_add_woocommerce_support() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:246) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\frontend\woocommerce\woocommerce.php on line 6
+
+2019-04-04T03:14:13+00:00 CRITICAL Cannot redeclare mytheme_add_woocommerce_support() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:246) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\frontend\woocommerce\woocommerce.php on line 6
+
+2019-04-04T03:14:33+00:00 CRITICAL Cannot redeclare mytheme_add_woocommerce_support() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:246) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\frontend\woocommerce\woocommerce.php on line 6
+
+2019-04-04T03:21:02+00:00 CRITICAL syntax error, unexpected '}', expecting end of file in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\frontend\woocommerce\woocommerce.php on line 29
+
+2019-04-04T03:24:45+00:00 CRITICAL Cannot redeclare custom_product_tabs() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\functions.php:331) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\frontend\woocommerce\woocommerce.php on line 246
+

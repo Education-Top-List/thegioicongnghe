@@ -1,0 +1,14 @@
+2019-04-08T03:04:55+00:00 CRITICAL syntax error, unexpected '-', expecting '(' in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php on line 15
+
+2019-04-08T03:59:50+00:00 CRITICAL Cannot redeclare ch_essentials_admin() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php:5) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php on line 14
+
+2019-04-08T03:59:52+00:00 CRITICAL Cannot redeclare ch_essentials_admin() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php:5) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php on line 14
+
+2019-04-08T04:00:17+00:00 CRITICAL Cannot redeclare ch_essentials_admin() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php:5) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php on line 14
+
+2019-04-08T04:00:19+00:00 CRITICAL Cannot redeclare ch_essentials_admin() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php:5) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php on line 14
+
+2019-04-08T04:00:47+00:00 CRITICAL syntax error, unexpected end of file in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\core.php on line 28
+
+2019-04-08T11:07:30+00:00 CRITICAL Cannot redeclare zang_commit_desc_one() (previously declared in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php:86) in C:\xampp\htdocs\thegioicongnghe\wp-content\themes\doanhnghiep\includes\admin\function-admin.php on line 98
+

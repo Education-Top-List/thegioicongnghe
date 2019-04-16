@@ -1,44 +1,57 @@
 <?php
-/* 
-@package zangTheme
-	=================
-		ADMIN PAGE
-	=================
-*/
-function zang_add_admin_page(){
-	// Generate zang admin page
-	add_menu_page('zang Theme Option','Tenten Framework' , 'manage_options' , 'template_admin_zang', 'zang_theme_create_page', 	get_template_directory_uri() . '/images/tenten.png', 110);
-	// Generate Sunset Admin Sub pages
-	add_submenu_page('template_admin_zang', 'Custom Text Header','Custom Text Header', 'manage_options' , 'template_admin_zang', 'zang_theme_create_page');
-	// Activate custom setttings
-	add_action('admin_init', 'zang_custom_settings');
-}
-add_action('admin_menu', 'zang_add_admin_page');
-function zang_custom_settings(){
-	// Sidebar Options
-	register_setting('zang-settings-groups', 'phone');
-	register_setting('zang-settings-groups', 'address_header');
-	register_setting('zang-settings-groups', 'footer_fb');
-	register_setting('zang-settings-groups', 'footer_twitter');
-	register_setting('zang-settings-groups', 'footer_ggplus');
-	register_setting('zang-settings-groups', 'footer_insta');
-	
+add_action('admin_menu', 'ch_essentials_admin');
+function ch_essentials_admin() {
 
-	add_settings_section('zang-header-options','Chỉnh sửa Header','zang_header_options','template_admin_zang');
-	add_settings_field('address-hd','Số điện thoại', 'zang_phone_header','template_admin_zang', 'zang-header-options');
-	add_settings_field('phone-hd','Địa chỉ', 'zang_address_header','template_admin_zang', 'zang-header-options');
-
-	add_settings_section('zang-footer-options','Chỉnh sửa Footer','zang_footer_options','template_admin_zang');
-	add_settings_field('facebook','Facebook Link', 'zang_footer_fb','template_admin_zang', 'zang-footer-options');
-	add_settings_field('twitter','Twitter Link', 'zang_footer_twitter','template_admin_zang', 'zang-footer-options');
-	add_settings_field('ggplus','Google Plus Link', 'zang_footer_ggplus','template_admin_zang', 'zang-footer-options');
-	add_settings_field('insta','Instagram Link', 'zang_footer_insta','template_admin_zang', 'zang-footer-options');
+	register_setting('zang-settings-header', 'phone');
+	register_setting('zang-settings-header', 'address_header');
+	register_setting('zang-settings-socials', 'footer_fb');
+	register_setting('zang-settings-socials', 'footer_twitter');
+	register_setting('zang-settings-socials', 'footer_ggplus');
+	register_setting('zang-settings-socials', 'footer_insta');
+	// Commit index
+	register_setting('zang-settings-commit', 'idx_commit_title_one');
+	register_setting('zang-settings-commit', 'idx_commit_desc_one');
+	register_setting('zang-settings-commit', 'idx_commit_title_two');
+	register_setting('zang-settings-commit', 'idx_commit_desc_two');
+	register_setting('zang-settings-commit', 'idx_commit_title_three');
+	register_setting('zang-settings-commit', 'idx_commit_desc_three');
+	/* Base Menu */
+	add_menu_page('Zang Theme Option','Tenten Framework','manage_options','template_admin_zang','zang_theme_create_page',get_template_directory_uri() . '/images/tenten.png',110);
 }
-	
-function zang_header_options(){
+add_action('admin_init', 'zang_custom_settings');
+function zang_custom_settings() { 
+
+	/* Header Options Section */
+	add_settings_section('zang-header-options', 'Chỉnh sửa header','zang_header_options_callback','zang-settings-header' );
+	add_settings_field('address-hd','Số điện thoại', 'zang_phone_header','zang-settings-header', 'zang-header-options');
+	add_settings_field('phone-hd','Địa chỉ', 'zang_address_header','zang-settings-header', 'zang-header-options');
+
+	/* Social Options Section */
+	add_settings_section('zang-social-options','Chỉnh sửa social','zang_social_options_callback','zang-settings-socials' );
+	add_settings_field('facebook','Facebook Link', 'zang_footer_fb','zang-settings-socials', 'zang-social-options');
+	add_settings_field('twitter','Twitter Link', 'zang_footer_twitter','zang-settings-socials', 'zang-social-options');
+	add_settings_field('ggplus','Google Plus Link', 'zang_footer_ggplus','zang-settings-socials', 'zang-social-options');
+	add_settings_field('insta','Instagram Link', 'zang_footer_insta','zang-settings-socials', 'zang-social-options');
+
+	/* Commit Options Section */
+	add_settings_section('zang-commit-options','Chỉnh sửa cam kết trang chủ','zang_commit_options_callback','zang-settings-commit');
+	add_settings_field('idx-commit-title-one','Cam kết 1','zang_commit_title_one', 'zang-settings-commit','zang-commit-options');
+	add_settings_field('idx-commit-desc-one','','zang_commit_desc_one', 'zang-settings-commit','zang-commit-options');
+	add_settings_field('idx-commit-title-two','Cam kết 2','zang_commit_title_two', 'zang-settings-commit','zang-commit-options');
+	add_settings_field('idx-commit-desc-two','','zang_commit_desc_two', 'zang-settings-commit','zang-commit-options');
+	add_settings_field('idx-commit-title-three','Cam kết 3','zang_commit_title_three', 'zang-settings-commit','zang-commit-options');
+	add_settings_field('idx-commit-desc-three','','zang_commit_desc_three', 'zang-settings-commit','zang-commit-options');
+}
+
+function zang_header_options_callback(){
 	echo '';
 }
-function zang_footer_options(){
+
+function zang_social_options_callback(){
+	echo '';
+}
+
+function zang_commit_options_callback(){
 	echo '';
 }
 
@@ -67,6 +80,37 @@ function zang_footer_insta(){
 	echo '<input type="text" class="iptext_adm" name="footer_insta" value="'.$footer_insta.'" placeholder="" ';
 }
 
+function zang_commit_title_one(){
+	$idx_commit_title_one = esc_attr(get_option('idx_commit_title_one'));
+	echo '<input type="text" class="iptext_adm" name="idx_commit_title_one" value="'.$idx_commit_title_one.'" >';
+};
+
+function zang_commit_desc_one(){
+	$idx_commit_desc_one = esc_attr(get_option('idx_commit_desc_one'));
+	echo '<input type="text" class="iptext_adm" name="idx_commit_desc_one" value="'.$idx_commit_desc_one.'" >';
+}
+
+function zang_commit_title_two(){
+	$idx_commit_title_two = esc_attr(get_option('idx_commit_title_two'));
+	echo '<input type="text" class="iptext_adm" name="idx_commit_title_two" value="'.$idx_commit_title_two.'" >';
+};
+
+function zang_commit_desc_two(){
+	$idx_commit_desc_two = esc_attr(get_option('idx_commit_desc_two'));
+	echo '<input type="text" class="iptext_adm" name="idx_commit_desc_two" value="'.$idx_commit_desc_two.'" >';
+}
+
+function zang_commit_title_three(){
+	$idx_commit_title_three = esc_attr(get_option('idx_commit_title_three'));
+	echo '<input type="text" class="iptext_adm" name="idx_commit_title_three" value="'.$idx_commit_title_three.'" >';
+};
+
+function zang_commit_desc_three(){
+	$idx_commit_desc_three = esc_attr(get_option('idx_commit_desc_three'));
+	echo '<input type="text" class="iptext_adm" name="idx_commit_desc_three" value="'.$idx_commit_desc_three.'" >';
+}
+
+
 function myshortcode(){
 	ob_start();
 	if(get_option('footer_fb') || get_option('footer_twitter') || get_option('footer_ggplus') || get_option('footer_insta') ){
@@ -91,7 +135,43 @@ function myshortcode(){
 }
 add_shortcode('social_ft','myshortcode');
 
-function zang_theme_create_page(){
-	require_once(get_template_directory().'/includes/admin/zang-admin.php');
+
+
+/* Display Page
+-----------------------------------------------------------------*/
+function zang_theme_create_page() {
+	?>
+	<div class="wrap">  
+		<?php settings_errors(); ?>  
+
+		<?php  
+		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'header_page_options';  
+		?>  
+
+		<h2 class="nav-tab-wrapper"> 
+			<a href="?page=template_admin_zang&tab=header_page_options" class="nav-tab <?php echo $active_tab == 'header_page_options' ? 'nav-tab-active' : ''; ?>">Header</a> 
+			<a href="?page=template_admin_zang&tab=social_page_options" class="nav-tab <?php echo $active_tab == 'social_page_options' ? 'nav-tab-active' : ''; ?>">Social Footer</a>  
+			<a href="?page=template_admin_zang&tab=commit_page_options" class="nav-tab <?php echo $active_tab == 'commit_page_options' ? 'nav-tab-active' : ''; ?>">Cam kết trang chủ</a>  
+		</h2>  
+
+		<form method="post" action="options.php">  
+			<?php 
+			if( $active_tab == 'header_page_options' ) {  
+				settings_fields( 'zang-settings-header' );
+				do_settings_sections( 'zang-settings-header' ); 
+			} else if( $active_tab == 'social_page_options' ) {
+				settings_fields( 'zang-settings-socials' );
+				do_settings_sections( 'zang-settings-socials' ); 
+			}
+			else if( $active_tab == 'commit_page_options' ) {
+				settings_fields( 'zang-settings-commit' );
+				do_settings_sections( 'zang-settings-commit' ); 
+			}
+			?>             
+			<?php submit_button(); ?>  
+		</form> 
+
+	</div> 
+	<?php
 }
 
