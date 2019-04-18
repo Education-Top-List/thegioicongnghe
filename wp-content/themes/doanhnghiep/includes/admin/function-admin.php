@@ -115,20 +115,20 @@ function myshortcode(){
 	ob_start();
 	if(get_option('footer_fb') || get_option('footer_twitter') || get_option('footer_ggplus') || get_option('footer_insta') ){
 		?>
-	<ul class="social_ft">
-		<?php if(get_option('footer_fb')){ ?>
-		<li class="fb_ft"><a href="<?php echo get_option('footer_fb'); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-		<?php }?>
-		<?php if(get_option('footer_twitter')){ ?>
-		<li class="twitter"><a href="<?php echo get_option('footer_twitter'); ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></i></a></li>
-		<?php }?>
-		<?php if(get_option('footer_ggplus')){ ?>
-		<li class="ggplus"><a href="<?php echo get_option('footer_ggplus'); ?>" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-		<?php }?>
-		<?php if(get_option('footer_insta')){ ?>
-		<li class="instagram"><a href="<?php echo get_option('footer_insta'); ?>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-		<?php }?>
-	</ul>	
+		<ul class="social_ft">
+			<?php if(get_option('footer_fb')){ ?>
+				<li class="fb_ft"><a href="<?php echo get_option('footer_fb'); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+			<?php }?>
+			<?php if(get_option('footer_twitter')){ ?>
+				<li class="twitter"><a href="<?php echo get_option('footer_twitter'); ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></i></a></li>
+			<?php }?>
+			<?php if(get_option('footer_ggplus')){ ?>
+				<li class="ggplus"><a href="<?php echo get_option('footer_ggplus'); ?>" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+			<?php }?>
+			<?php if(get_option('footer_insta')){ ?>
+				<li class="instagram"><a href="<?php echo get_option('footer_insta'); ?>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+			<?php }?>
+		</ul>	
 		<?php
 	}
 	return ob_get_clean();
@@ -148,11 +148,10 @@ function zang_theme_create_page() {
 		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'header_page_options';  
 		?>  
 
-		<h2 class="nav-tab-wrapper"> 
-			<a href="?page=template_admin_zang&tab=header_page_options" class="nav-tab <?php echo $active_tab == 'header_page_options' ? 'nav-tab-active' : ''; ?>">Header</a> 
-			<a href="?page=template_admin_zang&tab=social_page_options" class="nav-tab <?php echo $active_tab == 'social_page_options' ? 'nav-tab-active' : ''; ?>">Social Footer</a>  
-			<a href="?page=template_admin_zang&tab=commit_page_options" class="nav-tab <?php echo $active_tab == 'commit_page_options' ? 'nav-tab-active' : ''; ?>">Cam kết trang chủ</a>  
-		</h2>  
+		<ul class="nav-tab-wrapper"> 
+		<li><a href="?page=template_admin_zang&tab=header_page_options" class="nav-tab <?php echo $active_tab == 'header_page_options' ? 'nav-tab-active' : ''; ?>">Header</a> </li>
+		<li><a href="?page=template_admin_zang&tab=social_page_options" class="nav-tab <?php echo $active_tab == 'social_page_options' ? 'nav-tab-active' : ''; ?>">Social Footer</a></li>	<li><a href="?page=template_admin_zang&tab=commit_page_options" class="nav-tab <?php echo $active_tab == 'commit_page_options' ? 'nav-tab-active' : ''; ?>">Cam kết trang chủ</a> </li> 
+		</ul>  
 
 		<form method="post" action="options.php">  
 			<?php 

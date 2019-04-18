@@ -1,4 +1,5 @@
 <?php
+define('BASE_URL', get_site_url('null','/wp-content/themes/doanhnghiep', 'http'));
 include get_template_directory().'/includes/admin/function-admin.php';
 include get_template_directory().'/includes/admin/core.php';
 include get_template_directory().'/includes/frontend/woocommerce/woocommerce.php';
@@ -249,10 +250,7 @@ function rd_duplicate_post_link( $actions, $post ) {
 add_filter( 'post_row_actions', 'rd_duplicate_post_link', 10, 2 );
 // duplicate page
 //add_filter('page_row_actions', 'rd_duplicate_post_link', 10, 2);
-/**
- * URL SITE
- */
-define('BASE_URL', get_site_url('null','/wp-content/themes/doanhnghiep', 'http'));
+
 
 
 
