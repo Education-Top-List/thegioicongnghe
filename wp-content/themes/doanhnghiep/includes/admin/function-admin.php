@@ -171,6 +171,80 @@ function zang_theme_create_page() {
 		</form> 
 
 	</div> 
+
+
+<?php
+    $p = $_GET['id'];    
+    
+    switch($p) {
+        
+        case "1":
+        echo '<h2>Google</h2>Content goes here !<br style="clear:both;" />';
+        break;              
+        
+        case "2":
+        echo 'Yahoo content ?<br style="clear:both;" />';
+        break;
+        
+        case "3": 
+        echo 'My hotmail content goes here...<br style="clear:both;" />';
+        break;
+        
+        case "4": default:
+        echo 'Twitter status update <br style="clear:both;" />';
+        break;
+    }
+?>
+
+<div class="navcontainer">
+    <ul>
+        <li><a id="tab1" href="tabs.php?id=1">Google</a></li>
+        <li><a id="tab2" href="tabs.php?id=2">Yahoo</a></li>
+        <li><a id="tab3" href="tabs.php?id=3">Hotmail</a></li>
+        <li><a id="tab4" href="tabs.php?id=4">Twitter</a></li>
+    </ul>
+</div>
+ 
+
+ 
+<div id="tabcontent">
+    Simple AJAX Tabs
+</div>
+
+	<script type="text/javascript">			
+			
+			function loadTabContent(tabUrl){
+				$("#preloader").show();
+				jQuery.ajax({
+					url: tabUrl, 
+					cache: false,
+					success: function(message) {
+						jQuery("#tabcontent").empty().append(message);
+						$("#preloader").hide();
+					}
+				});
+			}
+			
+			jQuery(document).ready(function(){				
+				
+				$("#preloader").hide();				
+				jQuery("[id^=tab]").click(function(){	
+					
+					// get tab id and tab url
+					tabId = $(this).attr("id");										
+					tabUrl = jQuery("#"+tabId).attr("href");
+					
+					jQuery("[id^=tab]").removeClass("current");
+					jQuery("#"+tabId).addClass("current");
+					
+					// load tab content
+					loadTabContent(tabUrl);
+					return false;
+				});
+			});
+			
+		</script>
+
 	<?php
 }
 
